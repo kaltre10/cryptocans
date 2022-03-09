@@ -1,4 +1,3 @@
-const { add } = require('./store');
 const store = require('./store');
 
 const login = wallet => {

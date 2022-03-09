@@ -6,7 +6,7 @@ const routerApi = require('./network/routerApi');
 const app = express();
 app.use(express.json());
 
-connect(process.env.CONNECT);
+connect('mongodb+srv://kaltre10:Asking03-.1234@cluster0.uwbby.mongodb.net/test');
 
 routerApi(app);
 
