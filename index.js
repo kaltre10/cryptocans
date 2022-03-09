@@ -1,12 +1,12 @@
 const express = require('express');
 const connect = require('./db');
 const path = require('path');
-require('dotenv').config();
+require('dotenv').config({ path: '.env' });
 const routerApi = require('./network/routerApi');
 const app = express();
 app.use(express.json());
 
-connect('mongodb+srv://kaltre10:Asking03-.1234@cluster0.uwbby.mongodb.net/test');
+connect(process.env.CONNECT);
 
 routerApi(app);
 

@@ -5,9 +5,9 @@ const connect = async (url) => {
         await mongoose.connect(url)
         console.log('conectado mongoDB');
     } catch (error) {
-        console.log(error)
+        console.log(error);
+        process.exit(1) //detiene la app
     }
-        // .then(() => console.log('conectado correctamente mongoDB'))
 }
 
 module.exports = connect;
