@@ -1,12 +1,12 @@
 const express = require('express');
 const connect = require('./db');
 const path = require('path');
-require('dotenv').config({ path: '.env' });
+
 const routerApi = require('./network/routerApi');
 const app = express();
 app.use(express.json());
 
-connect(process.env.CONNECT);
+connect();
 
 routerApi(app);
 
