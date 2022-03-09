@@ -8,7 +8,7 @@ router.post('/login', async (req, res) => {
     try {
         if(!wallet) throw "Wallet invalida";
         const responseController = await controller.login(wallet);
-        response.success(req, res, responseController, 200)
+        response.success(req, res, responseController, 200);
     } catch (error) {
         response.error(req, res, error, 401);
     }

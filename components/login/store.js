@@ -1,11 +1,9 @@
 const Model = require('../user/model');
 
-const login = wallet => {
-    Model.find(),(err, res) => {
-        console.log(err);
-      };
-}
+const getWallet = wallet => Model.findOne({ wallet });
+const addWallet = wallet => Model({wallet}).save();
 
 module.exports = {
-    login
+    get: getWallet,
+    add: addWallet
 }
