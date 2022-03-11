@@ -5,6 +5,7 @@ const path = require('path');
 const routerApi = require('./network/routerApi');
 const app = express();
 app.use(express.json());
+app.cors();
 app.use(express.static(__dirname + '/'));
 
 connect();

@@ -4,7 +4,7 @@ const response = require('../../network/response');
 const controller = require('./controller');
 const cors = require('cors')
 
-router.post('/', cors(), async (req, res) => {
+router.post('/', async (req, res) => {
     const {wallet} = req.body;
     try {
         if(!wallet) throw "Wallet invalida";
