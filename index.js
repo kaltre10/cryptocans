@@ -1,6 +1,7 @@
 const express = require('express');
 const connect = require('./db');
 const path = require('path');
+const cors = require('cors')
 
 const routerApi = require('./network/routerApi');
 const app = express();
