@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(express.json());
-app.cors();
+app.use(cors());
 
 const routerApi = require('./network/routerApi');
 
