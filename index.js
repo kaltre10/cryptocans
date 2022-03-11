@@ -1,12 +1,14 @@
 const express = require('express');
 const connect = require('./db');
 const path = require('path');
-const cors = require('cors')
+const cors = require('cors');
 
-const routerApi = require('./network/routerApi');
 const app = express();
 app.use(express.json());
 app.cors();
+
+const routerApi = require('./network/routerApi');
+
 app.use(express.static(__dirname + '/'));
 
 connect();
