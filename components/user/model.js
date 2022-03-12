@@ -6,6 +6,10 @@ const Users = new Schema({
     wallet: {
         type: String,
         required: true
+    },
+    date: { 
+        type: Date,
+         default: Date.now 
     }
 });
 
