@@ -1,37 +1,37 @@
 let types = {
-    common: { min: 40, max: 90, top: 200, url: "url del common", name: "Name NFT Common" },
-    rare: { min: 60, max: 100, top: 230, url: "url del rare", name: "Name NFT rare" },
-    epic: { min: 80, max: 100, top: 260, url: "url del epic", name: "Name NFT epic" },
-    legendary: { min: 90, max: 110, top: 300, url: "url del lengedary", name: "Name NFT lengedary" }
+    1: { min: 40, max: 90, top: 200, url: "url del common", name: "Name NFT Common" }, //common
+    2: { min: 60, max: 100, top: 230, url: "url del rare", name: "Name NFT rare" }, //rare
+    3: { min: 80, max: 100, top: 260, url: "url del epic", name: "Name NFT epic" }, //epic
+    4: { min: 90, max: 110, top: 300, url: "url del lengedary", name: "Name NFT lengedary" } //legendary
 };
 
 let random = (min, max) => parseInt(Math.random() * (max - min) + min);
 
 const typeGenerateCommon = (numRandom) => {
-    if (numRandom >= 1 && numRandom <= 5000) return "legendary"; // 0.5%
-    if (numRandom > 1000 && numRandom <= 15000) return "epic"; // 1.5%
-    if (numRandom > 9000 && numRandom <= 300000) return "rare"; // 30%
-    if (numRandom > 300000 && numRandom <= 1000000) return "common"; // 60%
+    if (numRandom >= 1 && numRandom <= 5000) return 4; // 0.5% legendary
+    if (numRandom > 1000 && numRandom <= 15000) return 3; // 1.5% epic
+    if (numRandom > 9000 && numRandom <= 300000) return 2; // 30% rare
+    if (numRandom > 300000 && numRandom <= 1000000) return 1; // 60% common
 };
 
 const typeGenerateEpic = (numRandom) => {
-    if (numRandom >= 1 && numRandom <= 30000) return "legendary"; // 3%
-    if (numRandom > 30000 && numRandom <= 170000) return "epic"; // 17%
-    if (numRandom > 170000 && numRandom <= 600000) return "rare"; // 60%
-    if (numRandom > 600000 && numRandom <= 1000000) return "common"; // 30%
+    if (numRandom >= 1 && numRandom <= 30000) return 4; // 3% legendary
+    if (numRandom > 30000 && numRandom <= 170000) return 3; // 17% epic
+    if (numRandom > 170000 && numRandom <= 600000) return 2; // 60% rare
+    if (numRandom > 600000 && numRandom <= 1000000) return 1; // 30% common
 };
 
 const typeGenerateLegendary = (numRandom) => {
-    if (numRandom >= 1 && numRandom <= 60000) return "legendary"; // 6%
-    if (numRandom > 60000 && numRandom <= 300000) return "epic"; // 30%
-    if (numRandom > 300000 && numRandom <= 600000) return "rare"; // 60%
-    if (numRandom > 600000 && numRandom <= 1000000) return "common"; // 20%
+    if (numRandom >= 1 && numRandom <= 60000) return 4; // 6% legendary
+    if (numRandom > 60000 && numRandom <= 300000) return 3; // 30% epic
+    if (numRandom > 300000 && numRandom <= 600000) return 2; // 60% rare
+    if (numRandom > 600000 && numRandom <= 1000000) return 1; // 20% common
 };
 
 const typePackage = {
-    0: () => typeGenerateCommon(random(1, 1000000)),   //common
-    1: () => typeGenerateEpic(random(1, 1000000)),     //epic
-    2: () => typeGenerateLegendary(random(1, 1000000)) //legendary
+    1: () => typeGenerateCommon(random(1, 1000000)),   //common
+    2: () => typeGenerateEpic(random(1, 1000000)),     //epic
+    3: () => typeGenerateLegendary(random(1, 1000000)) //legendary 
 }
 
 const nftGenerate = (type, id, wallet) => {
@@ -45,12 +45,13 @@ const nftGenerate = (type, id, wallet) => {
         aerodinamica,
         aceleracion, 
         resistencia,
-        packageId: Number(id), //0: common, 1: epic, 2: legendary
+        packageId: Number(id), //1: common, 2: epic, 3: legendary
         wallet
     };
 };
 
 const mint = (id, wallet) => {
+    if(!typePackage[id] || !wallet) throw "Error Inesperado";
     const type = typePackage[id]();
     return nftGenerate(type, id, wallet);   
 }
