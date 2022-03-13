@@ -20,10 +20,12 @@ const incrementId = async () => {
     } catch (error) {
         console.log(error);
     }
-   
 }
+
+const setCan = (id, can) => Model.findOneAndUpdate({ id }, can, { new: true });
 
 module.exports = {
     get: getCans,
-    add: addCans
+    add: addCans,
+    set: setCan
 }
