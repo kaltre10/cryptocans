@@ -9,23 +9,23 @@ let random = (min, max) => parseInt(Math.random() * (max - min) + min);
 
 const typeGenerateCommon = (numRandom) => {
     if (numRandom >= 1 && numRandom <= 5000) return 4; // 0.5% legendary
-    if (numRandom > 1000 && numRandom <= 15000) return 3; // 1.5% epic
-    if (numRandom > 9000 && numRandom <= 300000) return 2; // 30% rare
-    if (numRandom > 300000 && numRandom <= 1000000) return 1; // 60% common
+    if (numRandom > 5000 && numRandom <= 20000) return 3; // 1.5% epic
+    if (numRandom > 20000 && numRandom <= 400000) return 2; // 38% rare
+    if (numRandom > 400000 && numRandom <= 1000000) return 1; // 60% common
 };
 
 const typeGenerateEpic = (numRandom) => {
     if (numRandom >= 1 && numRandom <= 30000) return 4; // 3% legendary
-    if (numRandom > 30000 && numRandom <= 170000) return 3; // 17% epic
-    if (numRandom > 170000 && numRandom <= 600000) return 2; // 60% rare
-    if (numRandom > 600000 && numRandom <= 1000000) return 1; // 30% common
+    if (numRandom > 30000 && numRandom <= 200000) return 3; // 17% epic
+    if (numRandom > 200000 && numRandom <= 700000) return 2; // 50% rare
+    if (numRandom > 700000 && numRandom <= 1000000) return 1; // 30% common
 };
 
 const typeGenerateLegendary = (numRandom) => {
-    if (numRandom >= 1 && numRandom <= 60000) return 4; // 6% legendary
-    if (numRandom > 60000 && numRandom <= 300000) return 3; // 30% epic
-    if (numRandom > 300000 && numRandom <= 600000) return 2; // 60% rare
-    if (numRandom > 600000 && numRandom <= 1000000) return 1; // 20% common
+    if (numRandom >= 1 && numRandom <= 100000) return 4; // 10% legendary
+    if (numRandom > 100000 && numRandom <= 500000) return 3; // 40% epic
+    if (numRandom > 500000 && numRandom <= 1000000) return 2; // 50% rare
+    if (numRandom > 0 && numRandom <= 0) return 1; // 0% common
 };
 
 const typePackage = {
