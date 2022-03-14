@@ -50,7 +50,6 @@ const Cans = new Schema({
     },
     hash: {
         type: String,
-        required: true,
         default: ""
     }
 });

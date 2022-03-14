@@ -15,7 +15,7 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { id, wallet  } = req.body;
+    const { id, wallet } = req.body;
     try {
         if(!id || !wallet) throw "Datos Invalidos!!";
         const responseController = await controller.mintCan({ id, wallet });
