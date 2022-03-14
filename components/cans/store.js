@@ -1,6 +1,9 @@
 const Model = require('./model');
 
 const getCans = id => Model.findOne({ id });
+
+const getCansUser = wallet => Model.find({ wallet });
+
 const addCans = async (can) => {
     can.id = await incrementId();
     return Model(can).save();
@@ -27,5 +30,6 @@ const setCan = (id, can) => Model.findOneAndUpdate({ id }, can, { new: true });
 module.exports = {
     get: getCans,
     add: addCans,
-    set: setCan
+    set: setCan,
+    cansUser: getCansUser
 }

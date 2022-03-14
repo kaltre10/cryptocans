@@ -14,6 +14,19 @@ const getCan = (id) => {
     });
 };
 
+const getCansUser = wallet => {
+    return new Promise( async (resolve, reject) => {
+        try { 
+            if(!wallet) throw 'Wallet no valido';  
+            let cans = await store.cansUser(wallet);
+            if(!cans) resolve({ message: "No hay Canes", cans })
+            resolve(cans);  
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
 const mintCan = ({id, wallet}) => {
     return new Promise( async (resolve, reject) => {
         try {
@@ -45,5 +58,6 @@ const setStatusCan = (id, hash) => {
 module.exports = {
     getCan,
     mintCan,
-    setStatusCan
+    setStatusCan,
+    getCansUser
 }
