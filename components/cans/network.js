@@ -25,9 +25,8 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.patch('/:id', async (req, res) => {
-    const { id } = req.params;
-    const { hash } = req.body;
+router.patch('/:id/:hash', async (req, res) => {
+    const { id, hash } = req.params;
     try {
         if(!id || !hash) throw "Datos Invalidos!!";
         const responseController = await controller.setStatusCan(id, hash);
