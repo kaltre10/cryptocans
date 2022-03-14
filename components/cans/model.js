@@ -49,7 +49,7 @@ const Cans = new Schema({
         required: true
     },
     hash: {
-        type: Number,
+        type: String,
         required: true,
         default: ""
     }
