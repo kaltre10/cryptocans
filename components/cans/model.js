@@ -47,6 +47,11 @@ const Cans = new Schema({
     packageId: {
         type: Number,
         required: true
+    },
+    hash: {
+        type: Number,
+        required: true,
+        default: ""
     }
 });
 

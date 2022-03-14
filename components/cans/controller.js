@@ -12,7 +12,7 @@ const getCan = (id) => {
 
         } catch (error) {
             reject(error);
-        }        
+        }
     });
 };
 
@@ -31,11 +31,11 @@ const mintCan = ({id, wallet}) => {
     })
 }
 
-const setStatusCan = id => {
+const setStatusCan = (id, hash) => {
     return new Promise( async (resolve, reject) => {
         try {
-            if(!id) throw "Datos Invalidos";
-            const newCan = await store.set(id, { status: 1});
+            if(!id || !hash) throw "Datos Invalidos";
+            const newCan = await store.set(id, { status: 1, hash });
             resolve(newCan);
         } catch (error) {
             reject(error);
