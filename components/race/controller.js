@@ -8,6 +8,7 @@ const clickPlay = async (wallet, id) => {
             const userWallet = await getUser(wallet);
             if(!can) throw "disculpe!! no existe el can";
             if(!userWallet) throw "disculpe!! no existe esta wallet";
+
             if(can.wallet !== userWallet.wallet) throw "No tiene permisos para esta acción";
 
             resolve(playRun(can))
@@ -18,8 +19,8 @@ const clickPlay = async (wallet, id) => {
     })
 }
 
-const getCan = (id) => storeCans.get(id);
-const getUser = (wallet) => storeLogin.get(wallet);
+const getCan = id => storeCans.get(id);
+const getUser = wallet => storeLogin.get(wallet);
 
 const playRun = can => {
     can;

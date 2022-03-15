@@ -5,9 +5,11 @@ const response = require('../../network/response');
 
 router.post('/', async (req, res) => {
     const { wallet, id } = req.body;
+
     try {
-        if(!wallet || !id) throw 'Datos Invalidos';
-        const responseController = await controller.clickPlay(wallet, id);
+        let walletUser = wallet.toLowerCase();      
+        if(!walletUser || !id) throw 'Datos Invalidos';
+        const responseController = await controller.clickPlay(walletUser, id);
         response.success(req, res, responseController, 401);
     } catch (error) {
         response.error(req, res, error, 401);
