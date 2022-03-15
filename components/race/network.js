@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
         let walletUser = wallet.toLowerCase();      
         if(!walletUser || !id) throw 'Datos Invalidos';
         const responseController = await controller.clickPlay(walletUser, id);
-        response.success(req, res, responseController, 401);
+        response.success(req, res, responseController, 200);
     } catch (error) {
         response.error(req, res, error, 401);
     }

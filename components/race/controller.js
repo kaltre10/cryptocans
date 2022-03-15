@@ -1,5 +1,6 @@
 const storeCans = require('../cans/store');
 const storeLogin = require('../login/store');
+const { random } = require('../../services/nftGenerate');
 
 const clickPlay = async (wallet, id) => {
     return new Promise( async (resolve, reject) => {
@@ -23,7 +24,15 @@ const getCan = id => storeCans.get(id);
 const getUser = wallet => storeLogin.get(wallet);
 
 const playRun = can => {
-    can;
+
+    const numRandom = () => random(1, 7);
+
+    const cansResult = [];
+    for (let i = 0; i < 6; i++) {
+        let random = numRandom();
+        (!cansResult.includes(random)) ? cansResult[i] = random : i--
+    }
+    return cansResult;
 }
 
 module.exports = {
