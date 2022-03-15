@@ -1,5 +1,5 @@
 const store = require('./store');
-const mint = require('../../services/nftGenerate');
+const { mint } = require('../../services/nftGenerate');
 
 const getCan = (id) => {
     return new Promise( async (resolve, reject) => {
@@ -28,11 +28,12 @@ const getCansUser = wallet => {
 }
 
 const mintCan = ({id, wallet}) => {
+    
     return new Promise( async (resolve, reject) => {
         try {
+
             if(!id || !wallet) throw 'Datos Invalidos'; 
             const can = mint(id, wallet); //minteamos el can
-            console.log(id, wallet)
             const newCan = await store.add(can); //agregamos el nuevo can
             resolve(newCan);
 

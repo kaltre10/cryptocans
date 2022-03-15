@@ -119,4 +119,7 @@ const mint = (id, wallet) => {
     return nftGenerate(type, id, wallet);   
 }
 
-module.exports = { mint, random };
+module.exports = { 
+    mint,
+    random
+};
