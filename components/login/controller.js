@@ -1,4 +1,4 @@
-const store = require('./store');
+const store = require('../user/store');
 
 const login = wallet => {
     return new Promise( async (resolve, reject) => {

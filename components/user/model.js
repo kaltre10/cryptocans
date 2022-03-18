@@ -7,6 +7,10 @@ const Users = new Schema({
         type: String,
         required: true
     },
+    balance: {
+        type: Number,
+        default: 0
+    },
     date: { 
         type: Date,
          default: Date.now 
