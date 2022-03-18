@@ -3,6 +3,7 @@ const router = express.Router();
 const login = require('../components/login/network');
 const cans = require('../components/cans/network');
 const race = require('../components/race/network');
+const market = require('../components/market/network');
 const cors = require('cors');
 
 const routerApi = app => {
@@ -12,6 +13,7 @@ const routerApi = app => {
     router.use('/login', login);
     router.use('/cans', cans);
     router.use('/race', race);
+    router.use('/market', market);
 }
 
 module.exports = routerApi;

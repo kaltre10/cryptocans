@@ -5,7 +5,6 @@ const response = require('../../network/response');
 
 router.post('/', async (req, res) => {
     const { wallet, id } = req.body;
-
     try {
         let walletUser = wallet.toLowerCase();      
         if(!walletUser || !id) throw 'Datos Invalidos';
@@ -14,7 +13,6 @@ router.post('/', async (req, res) => {
     } catch (error) {
         response.error(req, res, error, 401);
     }
-    
 });
 
 module.exports = router;
