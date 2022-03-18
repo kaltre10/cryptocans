@@ -51,6 +51,13 @@ const Cans = new Schema({
     hash: {
         type: String,
         default: ""
+    },
+    onSale:{
+        type: Object,
+        default: {
+            sale: false,
+            price: 0
+        }
     }
 });
 
