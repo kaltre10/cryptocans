@@ -1,7 +1,7 @@
 const Model = require('./model');
 
 const getAllCans = async (limit, page) => {
-    return await Model.paginate({}, { limit, page });
+    return await Model.paginate({ "onSale.sale": true } , { limit, page });
 }
 
 const getCans = id => Model.findOne({ id });

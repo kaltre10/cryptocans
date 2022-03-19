@@ -5,7 +5,7 @@ const getAll = async (limit, page) => {
         try {
             const cansAll = await storeCans.getAll(limit, page);
             const { docs } = cansAll;
-            const cans = docs.filter(can => can.onSale.sale == true);
+            // const cans = docs.filter(can => can.onSale.sale == true);
 
             //paginate data
             const paginate = {
@@ -20,7 +20,8 @@ const getAll = async (limit, page) => {
                 nextPage: cansAll.nextPage
             };
            
-            resolve({ cans, paginate });
+            // resolve({ cans, paginate });
+            resolve(docs);
         } catch (error) {
             reject(error);
         }
