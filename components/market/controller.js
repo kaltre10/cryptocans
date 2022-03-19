@@ -8,7 +8,7 @@ const getAll = async (limit, page) => {
             const cans = docs.filter(can => can.onSale.sale == true);
 
             //paginate data
-            cans.push([{
+            const paginate = {
                 totalDocs:cansAll.totalDocs,
                 limi: cansAll.limi,
                 totalPages: cansAll.totalPages,
@@ -18,9 +18,9 @@ const getAll = async (limit, page) => {
                 hasNextPage: cansAll.hasNextPage,
                 prevPage: cansAll.prevPage,
                 nextPage: cansAll.nextPage
-            }]);
+            };
            
-            resolve(cans);
+            resolve({ cans, paginate });
         } catch (error) {
             reject(error);
         }
