@@ -34,5 +34,5 @@ module.exports = {
     add: addCans,
     set: setCan,
     cansUser: getCansUser,
-    getAll :getAllCans
+    getAllCans :getAllCans
 }

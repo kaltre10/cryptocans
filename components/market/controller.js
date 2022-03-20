@@ -1,6 +1,17 @@
 const store = require('./store');
 const canStore = require('../cans/store');
 
+const getAll = async () => {
+    return new Promise( async (resolve, reject) => {
+        try {
+            const cansAll = await canStore.getAllCans();
+            resolve(cansAll);
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+
 const updateCans = async (canId, data) => {
     return new Promise( async (resolve, reject) => {
         try {
@@ -50,5 +61,6 @@ const buyMarket = (canId, walletBuyer, hash) => {
 
 module.exports = {
     updateCans,
-    buyMarket
+    buyMarket,
+    getAll
 }
