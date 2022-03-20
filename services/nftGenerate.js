@@ -11,10 +11,10 @@
  *  para sus propiedades 
  */
 let types = {
-    1: { min: 50, max: 90, top: 229, url: "url del common", name: "Name NFT Common" }, //common
-    2: { min: 60, max: 100, top: 239, url: "url del rare", name: "Name NFT rare" }, //rare
-    3: { min: 80, max: 100, top: 269, url: "url del epic", name: "Name NFT epic" }, //epic
-    4: { min: 90, max: 110, top: 300, url: "url del lengedary", name: "Name NFT lengedary" } //legendary
+    1: { min: 80, max: 100, maxMin: 200, maxTop: 229, url: "url del common", name: "Name NFT Common" }, //common
+    2: { min: 80, max: 100, maxMin: 230, maxTop: 259, url: "url del rare", name: "Name NFT rare" }, //rare
+    3: { min: 80, max: 100, maxMin: 260, maxTop: 299, url: "url del epic", name: "Name NFT epic" }, //epic
+    4: { min: 80, max: 100, maxMin: 300, maxTop: 350, url: "url del lengedary", name: "Name NFT lengedary" } //legendary
 };
 
 /**
@@ -89,7 +89,10 @@ const typePackage = {
 const nftGenerate = (type, id, wallet) => {
     let aerodinamica = random(types[type].min, types[type].max);
     let aceleracion = random(types[type].min, types[type].max);
-    let resistencia = random(types[type].min, types[type].top - (aerodinamica + aceleracion));
+    let randomMin =  types[type].maxTop - (aerodinamica + aceleracion);
+    let randomTop =  types[type].maxTop - (aerodinamica + aceleracion);
+    console.log(randomMin)
+    let resistencia = random(types[type].min, randomMin);
     // let resistencia = types[type].top - (aerodinamica + aceleracion);
     return { 
         name: types[type].name, 
