@@ -6,6 +6,8 @@ const getCans = id => Model.findOne({ id });
 
 const getCansUser = wallet => Model.find({ wallet, status: 1 });
 
+const deleteCans = id => Model.deleteOne({ id });
+
 const addCans = async (can) => {
     can.id = await incrementId();
     return Model(can).save();
@@ -33,6 +35,7 @@ module.exports = {
     get: getCans,
     add: addCans,
     set: setCan,
+    delete: deleteCans,
     cansUser: getCansUser,
     getAllCans :getAllCans
 }

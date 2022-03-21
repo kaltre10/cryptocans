@@ -53,12 +53,27 @@ const setStatusCan = (id, can) => {
             reject(error);
         }
     });
-    
+};
+
+const deleteCans = (id, wallet) => {
+    return new Promise( async (resolve, reject) => {
+        try {
+            if(!id, !wallet) throw "Datos Invalidos";
+            const checkCan = await store.get(id);
+            
+            if(checkCan.wallet !== wallet) throw "Accion Invalida";
+            const can = await store.delete(id);
+            resolve(can);
+        } catch (error) {
+            reject(error);
+        }
+    });
 };
  
 module.exports = {
     getCan,
     mintCan,
     setStatusCan,
-    getCansUser
+    getCansUser,
+    deleteCans
 }
