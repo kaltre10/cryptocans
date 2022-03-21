@@ -43,7 +43,7 @@ const buyMarket = (canId, walletBuyer, hash) => {
 
             //update can
             const canUpdate = await updateCans(can.id, { 
-                estatus: 1, 
+                status: 1, 
                 onSale: { 
                     sale: false, 
                     price: 0 
