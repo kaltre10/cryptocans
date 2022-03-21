@@ -32,12 +32,12 @@ router.post('/', async (req, res) => {
         const { canId, walletBuyer, hash, blockchainStatus } = req.body;
 
         //check blockchainStatus
-        if(blockchainStatus == false){
+        if(blockchainStatus === false ){
             //update can
             await controller.updateCans(canId, { status: 1 });
             response.success(req, res, "Compra Cancelada!", 200);
+            return;
         }
-
         if(!canId, !walletBuyer, !hash) throw 'Datos Invalidos';
         const responseController = await controller.buyMarket(canId, walletBuyer, hash);
         response.success(req, res, responseController, 200);
