@@ -3,7 +3,7 @@ const router = express.Router()
 const controller = require('./controller');
 const response = require('../../network/response');
 
-router.get('/', async (req, res) => {
+router.get('/:wallet', async (req, res) => {
     const { wallet } = req.params;
     try {
         let walletUser = wallet.toLowerCase();      
