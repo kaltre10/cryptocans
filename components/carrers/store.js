@@ -1,7 +1,10 @@
 const Model = require('./model');
 
-const addCareer = async (career) => Model(career).save();
+const addCareer = (career) => Model(career).save();
+
+const getCareer = wallet => Model.find({ wallet })
 
 module.exports = {
     add: addCareer,
+    get: getCareer
 }

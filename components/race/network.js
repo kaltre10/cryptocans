@@ -3,6 +3,18 @@ const router = express.Router()
 const controller = require('./controller');
 const response = require('../../network/response');
 
+router.get('/', async (req, res) => {
+    const { wallet } = req.body;
+    try {
+        let walletUser = wallet.toLowerCase();      
+        if(!walletUser) throw 'Datos Invalidos';
+        const responseController = await controller.getCareerUser(walletUser);
+        response.success(req, res, responseController, 200);
+    } catch (error) {
+        response.error(req, res, error, 401);
+    }
+});
+
 router.post('/', async (req, res) => {
     const { wallet, id } = req.body;
     try {

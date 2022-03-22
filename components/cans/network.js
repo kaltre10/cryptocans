@@ -18,7 +18,8 @@ router.get('/user/:wallet', async (req, res) => {
     const { wallet } = req.params;
     try {
         if(!wallet || wallet === '') throw "wallet Invalida";
-        const responseController = await controller.getCansUser(wallet);
+        let walletUser = wallet.toLowerCase(); 
+        const responseController = await controller.getCansUser(walletUser);
         response.success(req, res, responseController, 200);
     } catch (error) {
         response.error(req, res, error, 401);
@@ -29,7 +30,8 @@ router.post('/', async (req, res) => {
     const { id, wallet } = req.body;
     try {
         if(!id || !wallet) throw "Datos Invalidos!!";
-        const responseController = await controller.mintCan({ id, wallet });
+        let walletUser = wallet.toLowerCase(); 
+        const responseController = await controller.mintCan({ id, walletUser });
         response.success(req, res, responseController, 200);
     } catch (error) {
         response.error(req, res, error, 401);
@@ -53,7 +55,8 @@ router.delete('/:id/:wallet', async (req, res) => {
     const { id, wallet } = req.params;
     try {
         if(!id, !wallet) throw "Datos Invalidos!!";
-        const responseController = await controller.deleteCans(id, wallet);
+        let walletUser = wallet.toLowerCase(); 
+        const responseController = await controller.deleteCans(id, walletUser);
         response.success(req, res, responseController, 200);
     } catch (error) {
         response.error(req, res, error, 401);

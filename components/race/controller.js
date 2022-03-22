@@ -85,6 +85,19 @@ const careerSave = async (place, can, balance) => {
     return career;
 }
 
+const getCareerUser = (wallet) => {
+    return new Promise( async (resolve, reject) => {  
+        try {
+            const career = await storeCareers.get(wallet);
+            resolve(career);
+        } catch (error) {
+            console.log(error)
+            reject(error);
+        }
+    });
+}
+
 module.exports = {
-    clickPlay
+    clickPlay,
+    getCareerUser
 }
