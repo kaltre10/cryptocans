@@ -4,7 +4,7 @@ const controller = require('./controller');
 const response = require('../../network/response');
 
 router.get('/', async (req, res) => {
-    const { wallet } = req.body;
+    const { wallet } = req.params;
     try {
         let walletUser = wallet.toLowerCase();      
         if(!walletUser) throw 'Datos Invalidos';
