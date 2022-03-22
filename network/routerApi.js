@@ -4,6 +4,7 @@ const login = require('../components/login/network');
 const cans = require('../components/cans/network');
 const race = require('../components/race/network');
 const market = require('../components/marketplace/network');
+const activities = require('../components/activities/network');
 const cors = require('cors');
 
 const routerApi = app => {
@@ -14,6 +15,7 @@ const routerApi = app => {
     router.use('/cans', cans);
     router.use('/race', race);
     router.use('/marketplace', market);
+    router.use('/activities', activities);
 }
 
 module.exports = routerApi;
