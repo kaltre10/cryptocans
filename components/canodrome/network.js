@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
 
 
 //UPDATE CANODROME
-router.patch(':id', async (req, res) => {
+router.patch('/:id', async (req, res) => {
     const { id } = req.params;
     const can = req.body;
     try {

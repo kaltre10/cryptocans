@@ -50,6 +50,7 @@ const add = (wallet, type) => {
 const update = (id, can) => {
     return new Promise( async (resolve, reject) => {
         try {
+            // const cans = [can];
             const canodrome = await store.update(id, can);
             resolve(canodrome);
         } catch (error) {

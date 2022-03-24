@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Cans = require('../cans/model');
 
 const { Schema } = mongoose;
 
@@ -21,7 +22,8 @@ const Canodrome = new Schema({
         default: 1 //common
     },
     cans: {
-        type: Object,
+        type: Array,
+        default: []
     },
     url: {
         type: String,
