@@ -4,7 +4,7 @@ const getAllCans = async () => await Model.find({ "onSale.sale": true, status: 1
 
 const getCans = id => Model.findOne({ id });
 
-const getCansUser = wallet => Model.find({ wallet, status: 1 });
+const getCansUser = wallet => Model.find({ wallet });
 
 const deleteCans = id => Model.deleteOne({ id });
 
