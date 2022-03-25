@@ -59,6 +59,10 @@ const Cans = new Schema({
             sale: false,
             price: 0
         }
+    },
+    energy:{
+        type: Number,
+        default: 2
     }
 });
 

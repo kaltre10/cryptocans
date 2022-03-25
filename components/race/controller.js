@@ -31,6 +31,10 @@ const clickPlay = async (wallet, id) => {
     return new Promise( async (resolve, reject) => {
         try {
             const can = await getCan(id);
+
+            //check can energies
+            if(can.energy == 0)  throw "disculpe!! este can no dispone de energia";
+
             const userWallet = await getUser(wallet);
             if(!can) throw "disculpe!! no existe el can";
             if(!userWallet) throw "disculpe!! no existe esta wallet";
@@ -80,8 +84,15 @@ const careerSave = async (place, can, balance) => {
         canId: can.id
     }
     
+    //add career
     const career = await storeCareers.add(data);
+
+    //update user (balance)
     await storeUser.update(career);
+
+    //update can (-1 de energia)
+    await storeCans.set(can.id, { energy: can.energy -1 });
+
     return career;
 }
 
