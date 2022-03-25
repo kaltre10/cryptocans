@@ -27,13 +27,14 @@ const getCansUser = wallet => {
     });
 }
 
-const mintCan = ({id, wallet}) => {
+const mintCan = ({packageId, wallet, canId}) => {
     return new Promise( async (resolve, reject) => {
         try {
             
-            if(!id || !wallet) throw 'Datos Invalidos'; 
+            if(!packageId || !wallet, !canId) throw 'Datos Invalidos'; 
            
-            const can = mint(id, wallet); //minteamos el can
+            const can = mint(packageId, wallet); //minteamos el can
+            can.id = canId;
             const newCan = await store.add(can); //agregamos el nuevo can
             resolve(newCan);
 

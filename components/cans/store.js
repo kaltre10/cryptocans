@@ -8,10 +8,7 @@ const getCansUser = wallet => Model.find({ wallet });
 
 const deleteCans = id => Model.deleteOne({ id });
 
-const addCans = async (can) => {
-    can.id = await incrementId();
-    return Model(can).save();
-};
+const addCans = can => Model(can).save();
 
 const incrementId = async () => {
     try {
