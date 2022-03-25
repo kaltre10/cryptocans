@@ -2,8 +2,7 @@ const Model = require('./model');
 
 const getUser = wallet => Model.findOne({ wallet });
 const addUser = wallet => Model({wallet}).save();
-const updateUser = ({ wallet, balanceAfter}) => Model.findOneAndUpdate({ wallet }, { balance: balanceAfter})
-
+const updateUser = ({ wallet, balanceAfter}) => Model.findOneAndUpdate({ wallet }, { balance: balanceAfter}, { new: true})
 
 module.exports = {
     get: getUser,
