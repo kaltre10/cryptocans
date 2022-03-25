@@ -38,7 +38,7 @@ const Cans = new Schema({
     },
     status: {
         type: Number,
-        default: 0,
+        default: 1,
         required: true
     },
     date: {
