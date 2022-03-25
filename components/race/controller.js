@@ -1,6 +1,7 @@
 const storeCans = require('../cans/store');
 const storeUser = require('../user/store');
 const storeCareers = require('../carrers/store');
+const storeCanodrome = require('../canodrome/store');
 const { random } = require('../../services/nftGenerate');
 
 //* type and gain for career
@@ -27,13 +28,17 @@ const type = {
     }
 }
 
-const clickPlay = async (wallet, id) => {
+const clickPlay = async (wallet, canId, canodromeId) => {
     return new Promise( async (resolve, reject) => {
         try {
-            const can = await getCan(id);
-
+           
             //check can energies
+            const can = await getCan(canId);
             if(can.energy == 0)  throw "disculpe!! este can no dispone de energia";
+
+            //check canodrome energies
+            const canodrome = await storeCanodrome.get(canodromeId);
+            if(canodrome.energy == 0)  throw "disculpe!! este canodromo no dispone de energia";
 
             const userWallet = await getUser(wallet);
             if(!can) throw "disculpe!! no existe el can";
@@ -41,7 +46,7 @@ const clickPlay = async (wallet, id) => {
 
             if(can.wallet !== userWallet.wallet) throw "No tiene permisos para esta acción";
 
-            resolve(playRun(can, userWallet.balance))
+            resolve(playRun(can, userWallet.balance, canodrome))
 
         } catch (error) {
             reject(error);
@@ -52,7 +57,7 @@ const clickPlay = async (wallet, id) => {
 const getCan = id => storeCans.get(id);
 const getUser = wallet => storeUser.get(wallet);
 
-const playRun = async (can, balance) => {
+const playRun = async (can, balance, canodrome) => {
 
     const numRandom = () => random(1, 7);
 
@@ -62,7 +67,7 @@ const playRun = async (can, balance) => {
         (!cansResult.includes(random)) ? cansResult[i] = random : i--
     }
 
-    let career = await careerSave(cansResult.indexOf(1) + 1, can, balance);
+    let career = await careerSave(cansResult.indexOf(1) + 1, can, balance, canodrome);
     
     return {
         places: cansResult,
@@ -70,7 +75,7 @@ const playRun = async (can, balance) => {
     };
 }
 
-const careerSave = async (place, can, balance) => {
+const careerSave = async (place, can, balance, canodrome) => {
 
     let gainToken = type[can.rarity][place] || 0;
     let balanceAfter = balance + gainToken || balance ;
@@ -92,6 +97,9 @@ const careerSave = async (place, can, balance) => {
 
     //update can (-1 de energia)
     await storeCans.set(can.id, { energy: can.energy -1 });
+
+    //update canodrome (-1 de energia)
+    await storeCanodrome.updateEnergy(canodrome._id, { energy: canodrome.energy -1 });
 
     return career;
 }

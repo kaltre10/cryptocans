@@ -16,11 +16,11 @@ router.get('/:wallet', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { wallet, id } = req.body;
+    const { wallet, canId, canodromeId } = req.body;
     try {
         let walletUser = wallet.toLowerCase();      
-        if(!walletUser || !id) throw 'Datos Invalidos';
-        const responseController = await controller.clickPlay(walletUser, id);
+        if(!walletUser || !canId || !canodromeId) throw 'Datos Invalidos';
+        const responseController = await controller.clickPlay(walletUser, canId, canodromeId);
         response.success(req, res, responseController, 200);
     } catch (error) {
         response.error(req, res, error, 401);
