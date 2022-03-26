@@ -1,4 +1,5 @@
 const storeUser = require('../user/store');
+const approveContract = require('../../services/approveContract');
 
 const claim = async (amount, wallet) => {
     return new Promise( async (resolve, reject) => {
@@ -11,6 +12,8 @@ const claim = async (amount, wallet) => {
 
             //calc new balance
             const balanceAfter = user.balance - amount;
+
+            await approveContract(amount, wallet);
 
             //update balance
             const updateBalance = await storeUser.update({wallet, balanceAfter});
