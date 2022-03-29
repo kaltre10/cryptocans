@@ -10,16 +10,17 @@ const claim = require('../components/claim/network');
 const cors = require('cors');
 
 const routerApi = app => {
+
     app.use(cors(), router);
     app.use('/api/v1', router);
 
-    router.use('/login', login);
-    router.use('/cans', cans);
-    router.use('/race', race);
-    router.use('/marketplace', market);
-    router.use('/activities', activities);
-    router.use('/canodromes', canodrome);
-    router.use('/claim', claim);
+        router.use('/login', login);
+        router.use('/cans', cans);
+        router.use('/race', race);
+        router.use('/marketplace', market);
+        router.use('/activities', activities);
+        router.use('/canodromes', canodrome);
+        router.use('/claim', claim);
 }
 
 module.exports = routerApi;

@@ -32,7 +32,7 @@ const add = (wallet, type) => {
         try {
             const user = await storeCan.get(wallet);
             const data = {
-                wallet: wallet,
+                wallet: wallet.toLowerCase(),
                 userId: user._id
             }
 
