@@ -8,8 +8,9 @@ const login = wallet => {
             if(!getWallet){
                 getWallet = await addWallet(wallet);
                 resolve({ message: "Agregado Correctamente!!", getWallet });
+            }else{
+                resolve(getWallet);    
             }
-            resolve(getWallet);    
         } catch (error) {
             reject(error);
         }        
