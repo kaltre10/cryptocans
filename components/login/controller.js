@@ -9,7 +9,7 @@ const login = wallet => {
             store.get(wallet)
             .then(getWallet => {
 
-                if(getWallet === null){
+                if(getWallet == null){
                     addWallet(wallet)
                     .then(() => {
                         //add canodrome default
