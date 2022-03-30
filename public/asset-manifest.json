@@ -1,27 +1,32 @@
 {
   "files": {
-    "main.css": "/public/static/css/main.e8a5e3b1.css",
-    "main.js": "/public/static/js/main.6738e3c7.js",
+    "main.css": "/public/static/css/main.97863143.css",
+    "main.js": "/public/static/js/main.f5531fad.js",
     "static/js/787.486aae03.chunk.js": "/public/static/js/787.486aae03.chunk.js",
     "static/media/card-common.svg": "/public/static/media/card-common.32f9e12a0b5514a9ae3131fbba9801da.svg",
-    "static/media/header-can.png": "/public/static/media/header-can.db4f7b4aefffa41ad7e8.png",
+    "static/media/header-can.svg": "/public/static/media/header-can.93c7106f64617e72a53ceec197934cd6.svg",
     "static/media/front.svg": "/public/static/media/front.4db439758e73b493b7b20a816a1c8e42.svg",
     "static/media/blockchain.svg": "/public/static/media/blockchain.04308609cc7de44efb8aa2ddb01092e4.svg",
     "static/media/ceo.svg": "/public/static/media/ceo.aedc9f9c8b9f1a2369e5eebb583b2f4d.svg",
     "static/media/design.svg": "/public/static/media/design.257893bbcb1d87f9cc79a99ebcd2e751.svg",
+    "static/media/logo.svg": "/public/static/media/logo.ce4adb1382cfa721010b057dc59b6026.svg",
+    "static/media/ico-wallet.svg": "/public/static/media/ico-wallet.e442439e75ab448c94c85f336099647e.svg",
+    "static/media/ico-dasboard.svg": "/public/static/media/ico-dasboard.9b292c73b5fa6f8d38a901b204bd8a65.svg",
+    "static/media/ico-market.svg": "/public/static/media/ico-market.59cc90ef5fd74930a7581407de98bdc0.svg",
     "static/media/instagram.svg": "/public/static/media/instagram.a3b148a45278b29416340830531e1d4b.svg",
+    "static/media/ico-race.svg": "/public/static/media/ico-race.eefa0d3521adc1e1640380ade8b0cee3.svg",
     "static/media/discord.svg": "/public/static/media/discord.7671a5f6e5a1ba2b2a679761c1709594.svg",
     "static/media/ico-block.svg": "/public/static/media/ico-block.bad093041aded9acca64346054d11ec8.svg",
     "static/media/telegram.svg": "/public/static/media/telegram.953cdda09683e2cdbad7e3d3e42b0409.svg",
     "index.html": "/public/index.html",
     "static/media/linkeding.svg": "/public/static/media/linkeding.9988aafd3cb83a57c2835d7761aa8448.svg",
     "static/media/ico-check.svg": "/public/static/media/ico-check.dee706da89a89caa2faf5df37144f357.svg",
-    "main.e8a5e3b1.css.map": "/public/static/css/main.e8a5e3b1.css.map",
-    "main.6738e3c7.js.map": "/public/static/js/main.6738e3c7.js.map",
+    "main.97863143.css.map": "/public/static/css/main.97863143.css.map",
+    "main.f5531fad.js.map": "/public/static/js/main.f5531fad.js.map",
     "787.486aae03.chunk.js.map": "/public/static/js/787.486aae03.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e8a5e3b1.css",
-    "static/js/main.6738e3c7.js"
+    "static/css/main.97863143.css",
+    "static/js/main.f5531fad.js"
   ]
 }
