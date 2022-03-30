@@ -3,6 +3,7 @@ const storeCanodrome = require('../canodrome/store');
 
 const login = wallet => {
     return new Promise( async (resolve, reject) => {
+
         try {
             if(!wallet) throw 'Wallet no valida';  
             let getWallet = await store.get(wallet);
@@ -15,7 +16,7 @@ const login = wallet => {
                     wallet: user.wallet,
                     userId: user._id
                 }
-                const canodrome = await storeCanodrome.add(data);
+                const canodrome = storeCanodrome.add(data);
 
                 resolve({ message: "Agregado Correctamente!!", getWallet });
             }
