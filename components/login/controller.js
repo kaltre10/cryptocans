@@ -5,12 +5,11 @@ const login = wallet => {
         try {
             if(!wallet) throw 'Wallet no valida';  
             let getWallet = await store.get(wallet);
-            if(!getWallet){
+            if(getWallet === null){
                 getWallet = await addWallet(wallet);
                 resolve({ message: "Agregado Correctamente!!", getWallet });
-            }else{
-                resolve(getWallet);    
             }
+            resolve(getWallet);    
         } catch (error) {
             reject(error);
         }        
