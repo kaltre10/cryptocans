@@ -1,6 +1,5 @@
 const store = require('./store');
 const storeCan = require('../user/store');
-const { exists } = require('./model');
 
 //GET CANODROMES USER
 const getAll = async (wallet) => {
