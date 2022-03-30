@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/public/static/css/main.e1d1c471.css",
-    "main.js": "/public/static/js/main.d4fe9993.js",
+    "main.css": "/public/static/css/main.e8a5e3b1.css",
+    "main.js": "/public/static/js/main.6738e3c7.js",
     "static/js/787.486aae03.chunk.js": "/public/static/js/787.486aae03.chunk.js",
     "static/media/card-common.svg": "/public/static/media/card-common.32f9e12a0b5514a9ae3131fbba9801da.svg",
     "static/media/header-can.png": "/public/static/media/header-can.db4f7b4aefffa41ad7e8.png",
@@ -16,12 +16,12 @@
     "index.html": "/public/index.html",
     "static/media/linkeding.svg": "/public/static/media/linkeding.9988aafd3cb83a57c2835d7761aa8448.svg",
     "static/media/ico-check.svg": "/public/static/media/ico-check.dee706da89a89caa2faf5df37144f357.svg",
-    "main.e1d1c471.css.map": "/public/static/css/main.e1d1c471.css.map",
-    "main.d4fe9993.js.map": "/public/static/js/main.d4fe9993.js.map",
+    "main.e8a5e3b1.css.map": "/public/static/css/main.e8a5e3b1.css.map",
+    "main.6738e3c7.js.map": "/public/static/js/main.6738e3c7.js.map",
     "787.486aae03.chunk.js.map": "/public/static/js/787.486aae03.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1d1c471.css",
-    "static/js/main.d4fe9993.js"
+    "static/css/main.e8a5e3b1.css",
+    "static/js/main.6738e3c7.js"
   ]
 }
