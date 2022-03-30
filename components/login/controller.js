@@ -6,21 +6,29 @@ const login = wallet => {
 
         try {
             if(!wallet) throw 'Wallet no valida';  
-            let getWallet = await store.get(wallet);
-            if(getWallet === null){
-                getWallet = await addWallet(wallet);
+            store.get(wallet)
+            .then(getWallet => {
 
-                //add canodrome default
-                const user = await store.get(wallet);
-                const data = {
-                    wallet: user.wallet,
-                    userId: user._id
+                if(getWallet === null){
+                    addWallet(wallet)
+                    .then(() => {
+                        //add canodrome default
+                        store.get(wallet)
+                        .then(user => {
+                            const data = {
+                                wallet: user.wallet,
+                                userId: user._id
+                            }
+                            storeCanodrome.add(data)
+                            .then(() => resolve({ message: "Agregado Correctamente!!", getWallet }))   
+                        })
+                    })
                 }
-                const canodrome = storeCanodrome.add(data);
 
-                resolve({ message: "Agregado Correctamente!!", getWallet });
-            }
-            resolve(getWallet);    
+                resolve(getWallet);    
+            })
+            
+           
         } catch (error) {
             reject(error);
         }        
