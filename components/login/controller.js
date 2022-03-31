@@ -1,21 +1,21 @@
-const store = require('../user/store');
-const storeCanodrome = require('../canodrome/store');
+const Model = require('./model');
+const ModelCanodrome = require('../canodrome/model');
 
 const login = wallet => {
     return new Promise( async (resolve, reject) => {
         try {
 
             if(!wallet) throw 'Wallet no valida';  
-            const getWallet = await getUser(wallet);
+            const getWallet = await Model.findOne(wallet);
            
             if(!getWallet){
-                const newUser = await addWallet(wallet)
+                const newUser = await Model(wallet).save();
                 //add canodrome default
                 const data = {
                     wallet: newUser.wallet,
                     userId: newUser._id
                 }
-                await addCanodrome(data);
+                await ModelCanodrome(data).save();
                 resolve({ message: "Agregado Correctamente!!", newUser });
                 return;
             };
