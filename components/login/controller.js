@@ -6,10 +6,10 @@ const login = wallet => {
         try {
 
             if(!wallet) throw 'Wallet no valida';  
-            const getWallet = await Model.findOne(wallet);
+            const getWallet = await Model.findOne({wallet});
            
             if(!getWallet){
-                const newUser = await Model(wallet).save();
+                const newUser = await Model({wallet}).save();
                 //add canodrome default
                 const data = {
                     wallet: newUser.wallet,
@@ -23,6 +23,7 @@ const login = wallet => {
             resolve(getWallet); 
            
         } catch (error) {
+            console.log(error)
             reject(error);
         }        
     })
