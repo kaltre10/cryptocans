@@ -5,7 +5,8 @@ const { Schema } = mongoose;
 const Users = new Schema({
     wallet: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     balance: {
         type: Number,

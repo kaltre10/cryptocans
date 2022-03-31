@@ -8,19 +8,19 @@ const login = wallet => {
             if(!wallet) throw 'Wallet no valida';  
             const getWallet = await getUser(wallet);
            
-            if(!getWallet){
-                const newUser = await addWallet(wallet)
-                //add canodrome default
-                const data = {
-                    wallet: newUser.wallet,
-                    userId: newUser._id
-                }
-                await addCanodrome(data);
-                resolve({ message: "Agregado Correctamente!!", newUser });
-            };
-
-            resolve(getWallet); 
+            if(getWallet){
+                resolve(getWallet); 
+            }
            
+            const newUser = await addWallet(wallet)
+            //add canodrome default
+            const data = {
+                wallet: newUser.wallet,
+                userId: newUser._id
+            }
+            await addCanodrome(data);
+            resolve({ message: "Agregado Correctamente!!", newUser });
+
         } catch (error) {
             reject(error);
         }        
