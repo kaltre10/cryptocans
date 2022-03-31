@@ -6,7 +6,7 @@ const login = wallet => {
         try {
 
             if(!wallet) throw 'Wallet no valida';  
-            const getWallet = await store.get(wallet)
+            const getWallet = await getUser(wallet);
            
             if(!getWallet){
                 const newUser = await addWallet(wallet)
@@ -15,8 +15,9 @@ const login = wallet => {
                     wallet: newUser.wallet,
                     userId: newUser._id
                 }
-                await storeCanodrome.add(data);
-                resolve({ message: "Agregado Correctamente!!", newUser })   
+                await addCanodrome(data);
+                resolve({ message: "Agregado Correctamente!!", newUser });
+                return;
             };
 
             resolve(getWallet); 
@@ -28,6 +29,8 @@ const login = wallet => {
 };
 
 const addWallet = async (wallet) => await store.add(wallet);
+const getUser = async (wallet) => await store.get(wallet);
+const addCanodrome = async (data) => await storeCanodrome.add(data);
 
 module.exports = {
     login
