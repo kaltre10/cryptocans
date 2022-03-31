@@ -1,4 +1,4 @@
-const Model = require('./model');
+const Model = require('../user/model');
 const ModelCanodrome = require('../canodrome/model');
 
 const login = wallet => {
