@@ -1,5 +1,6 @@
 const store = require('./store');
-const storeCan = require('../user/store');
+const storeUser = require('../user/store');
+const storeCan = require('../cans/store');
 
 //GET CANODROMES USER
 const getAll = async (wallet) => {
@@ -29,7 +30,7 @@ const get = async (id) => {
 const add = (wallet, type) => {
     return new Promise( async (resolve, reject) => {
         try {
-            const user = await storeCan.get(wallet);
+            const user = await storeUser.get(wallet);
             const data = {
                 wallet: wallet.toLowerCase(),
                 userId: user._id
@@ -65,6 +66,20 @@ const checkAddCan = async (id) => {
 const update = (id, can) => {
     return new Promise( async (resolve, reject) => {
         try {
+
+            //check can existe
+            const checkCan = await storeCan.get(can.can.id);
+            if(!checkCan) throw 'Disculpe este can no existe';
+          
+            //check cans pertene al user
+            const checkCanodrome = await get(id);
+            if(checkCanodrome.wallet !== checkCan.wallet) throw 'Disculpe este can no le pertenece';
+
+            //check mismo can
+            const arrayCans = checkCanodrome.cans.map(can => can.can.id );
+      
+            if(arrayCans.includes(can.can.id)) throw 'Este can ya se encuentra en el canodromo';
+
             const checkLength = await checkAddCan(id);
            
             if(!checkLength) throw 'Este canodromo no tiene suficiente energia';
