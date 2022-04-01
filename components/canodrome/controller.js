@@ -93,9 +93,26 @@ const update = (id, can) => {
     });
 }
 
+//DELETE CAN
+const deleteCan = (canodromeId, canId) => {
+    return new Promise( async (resolve, reject) => {
+        try {
+          
+            const canodrome = await get(canodromeId); 
+            const arrayCans = canodrome.cans.filter(can => can.can.id != canId)      
+            const exe = await store.delete(canodromeId, arrayCans);
+            resolve(exe);
+
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
 module.exports = {
     getAll,
     get,
     add,
-    update
+    update,
+    deleteCan
 }

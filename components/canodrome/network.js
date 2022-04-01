@@ -50,4 +50,16 @@ router.patch('/:id', async (req, res) => {
     }
 });
 
+//DELETE CAN
+router.delete('/:canodromeId/:canId', async (req, res) => {
+    const { canodromeId, canId } = req.params;
+    try {
+        if(!canodromeId || !canId) throw "Id Invalidos!!";
+        const responseController = await controller.deleteCan(canodromeId, canId);
+        response.success(req, res, responseController, 200);
+    } catch (error) {
+        response.error(req, res, error, 401);
+    }
+});
+
 module.exports = router;
