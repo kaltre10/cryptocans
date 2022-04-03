@@ -21,6 +21,7 @@ routerApi(app);
     app.get('/shop', (req, res) => res.sendFile(path.join(__dirname, './dapp/index.html')));
     app.get('/race', (req, res) => res.sendFile(path.join(__dirname, './dapp/index.html')));
     app.get('/admin', (req, res) => res.sendFile(path.join(__dirname, './dapp/index.html')));
+    app.get('/canodromes', (req, res) => res.sendFile(path.join(__dirname, './dapp/index.html')));
 
     app.get('*/', (req, res) => res.status(404).send('Error 404'));
 
