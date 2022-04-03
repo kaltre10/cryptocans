@@ -1,7 +1,7 @@
 const Model = require('./model');
 
-const getUser = wallet => Model.findOne({ wallet }).exec();;
-const addUser = wallet => Model({wallet}).save();
+const getUser = async wallet => await Model.findOne({ wallet }).exec();
+const addUser = async wallet => await Model.create({wallet}).exec();
 const updateUser = ({ wallet, balanceAfter}) => Model.findOneAndUpdate({ wallet }, { balance: balanceAfter}, { new: true})
 
 module.exports = {
