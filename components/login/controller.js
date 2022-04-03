@@ -7,7 +7,7 @@ const login = wallet => {
 
             if(!wallet) throw 'Wallet no valida';  
             const getWallet = await getUser(wallet);
-           
+
             if(getWallet){
                 resolve(getWallet); 
             }
