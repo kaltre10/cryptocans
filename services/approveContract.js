@@ -19,7 +19,12 @@ async function start(amount, walletUser){
     // .on('error', error => { })
     // .on('transactionHash', transactionHash => console.log(transactionHash))
     // .on('receipt', receipt => console.log(transactionHash))
-    // .on('confirmation', (confirmationNumber, receipt) => console.log(confirmationNumber, receip))
+    .on('confirmation', (confirmationNumber) => {
+      console.log(confirmationNumber)
+      if(confirmationNumber >= 10){
+        return confirmationNumber;
+      }
+    })
     // .then( newContractInstance => {
 
         // console.log(newContractInstance.options.address)
