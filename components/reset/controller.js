@@ -18,10 +18,20 @@ const resetEnergy = async (wallet) => {
 
             const date = new Date();
             const reset = new Date(user.reset);
-           
+
+            //verificamos si ha pasado mas de 2 dias
+            const dayDiferencia = date.getDate() - reset.getDate();
+
             //validamos la fecha del servidor con el reset
-            if(date.getHours() >= reset.getHours() && date.getDate() > reset.getDate()){
-    
+            if( dayDiferencia == 0 && 
+                date.getMonth() == reset.getMonth() &&
+                date.getFullYear() == reset.getFullYear()){
+                    resolve(false)
+                    return;
+                } 
+
+            if(date.getHours() >= reset.getHours() || dayDiferencia < 0 || dayDiferencia >= 2 ){
+
                 const walletUser = user.wallet.toLowerCase();
                 const canodromes = await storeCanodromes.getAll(walletUser);
 
@@ -35,7 +45,13 @@ const resetEnergy = async (wallet) => {
                 //update user date reset
                 await storeUser.set(walletUser, { reset: Date() });
                 resolve('Energy Completed');
+                return;
             }
+           
+           
+                
+            
+            
             resolve();
             return;
 
