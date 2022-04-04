@@ -17,20 +17,26 @@ const resetEnergy = async (wallet) => {
             if(!user) throw "Error de usuario";
 
             const date = new Date();
-            const dateUser = new Date(user.date);
-            
-            if(date.getHours() >= dateUser.getHours()){
+            const reset = new Date(user.reset);
+           
+            //validamos la fecha del servidor con el reset
+            if(date.getHours() >= reset.getHours() && date.getDate() > reset.getDate()){
+    
                 const walletUser = user.wallet.toLowerCase();
                 const canodromes = await storeCanodromes.getAll(walletUser);
 
-                //update canodromes
+                //update canodromes all
                 canodromes.forEach( async canodrome => await storeCanodromes.updateEnergy( canodrome._id, { energy: typeCanodrome[canodrome.type] }));
 
-                //update cans
+                //update cans all
                 const cans = await storeCans.cansUser(walletUser);
                 cans.forEach( async can => await storeCans.set( can.id, { energy: 2 } ));
+
+                //update user date reset
+                await storeUser.set(walletUser, { reset: Date() });
+                resolve('Energy Completed');
             }
-            resolve('Energy Completed');
+            resolve();
             return;
 
         } catch (error) {

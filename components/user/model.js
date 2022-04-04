@@ -15,6 +15,10 @@ const Users = new Schema({
     date: { 
         type: Date,
          default: Date.now 
+    },
+    reset: { 
+        type: Date,
+         default: Date.now 
     }
 });
 
