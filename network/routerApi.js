@@ -7,6 +7,7 @@ const market = require('../components/marketplace/network');
 const activities = require('../components/activities/network');
 const canodrome = require('../components/canodrome/network');
 const claim = require('../components/claim/network');
+const reset = require('../components/reset/network');
 const cors = require('cors');
 
 const routerApi = app => {
@@ -21,6 +22,7 @@ const routerApi = app => {
         router.use('/activities', activities);
         router.use('/canodromes', canodrome);
         router.use('/claim', claim);
+        router.use('/reset', reset);
 }
 
 module.exports = routerApi;
