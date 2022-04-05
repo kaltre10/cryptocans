@@ -48,10 +48,6 @@ const resetEnergy = async (wallet) => {
                 return;
             }
            
-           
-                
-            
-            
             resolve();
             return;
 

@@ -1,5 +1,6 @@
 const store = require('../user/store');
 const storeCanodrome = require('../canodrome/store');
+const storeClaim = require('../claim/store');
 
 const login = wallet => {
     return new Promise( async (resolve, reject) => {
@@ -19,6 +20,7 @@ const login = wallet => {
                 userId: newUser._id
             }
             await addCanodrome(data);
+            await addClaim(wallet);
             resolve({ message: "Agregado Correctamente!!", newUser });
 
         } catch (error) {
@@ -30,6 +32,7 @@ const login = wallet => {
 const addWallet = async (wallet) => await store.add(wallet);
 const getUser = async (wallet) => await store.get(wallet);
 const addCanodrome = async (data) => await storeCanodrome.add(data);
+const addClaim = async (wallet) => await storeClaim.add(wallet);
 
 module.exports = {
     login
