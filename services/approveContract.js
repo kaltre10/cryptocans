@@ -18,13 +18,13 @@ async function start(amount, walletUser){
     }, (error, transactionHash) => console.log(transactionHash))
     // .on('error', error => { })
     // .on('transactionHash', transactionHash => console.log(transactionHash))
-    // .on('receipt', receipt => console.log(transactionHash))
-    .on('confirmation', (confirmationNumber) => {
-      console.log(confirmationNumber)
-      if(confirmationNumber >= 10){
-        return confirmationNumber;
-      }
-    })
+    // .on('receipt', receipt => receipt)
+    // .on('confirmation', (confirmationNumber) => {
+    //   console.log(confirmationNumber)
+    //   if(confirmationNumber >= 10){
+    //     return confirmationNumber;
+    //   }
+    // })
     // .then( newContractInstance => {
 
         // console.log(newContractInstance.options.address)
