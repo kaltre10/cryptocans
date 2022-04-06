@@ -3,6 +3,14 @@ const connect = require('./db');
 const path = require('path');
 
 const app = express();
+const http = require('http');
+const serve = http.createServer(app);
+const cors = require('cors');
+
+const socket = require('./socket');
+socket.connect(serve);
+
+app.use(cors());
 app.use(express.json());
 
 const routerApi = require('./network/routerApi');
@@ -27,6 +35,6 @@ routerApi(app);
 
 const port = process.env.PORT || 3000;
 
-app.listen( port, () => {
+serve.listen( port, () => {
     console.log(`server activo en el puerto ${port}`);
 });

@@ -1,10 +1,15 @@
 const store = require('./store');
 const canStore = require('../cans/store');
+const socket = require('../../socket').socket;
 
 const getAll = async () => {
     return new Promise( async (resolve, reject) => {
         try {
             const cansAll = await canStore.getAllCans();
+            
+            //websocket
+            socket.io.emit('data', cansAll);  
+
             resolve(cansAll);
         } catch (error) {
             reject(error);
@@ -16,6 +21,10 @@ const updateCans = async (canId, data) => {
     return new Promise( async (resolve, reject) => {
         try {
             const canUpdate = await store.update(canId, data);
+
+            //envio por websocket
+            await getAll();
+
             resolve(canUpdate);
         } catch (error) {
             reject(error);
@@ -49,7 +58,10 @@ const buyMarket = (canId, walletBuyer, hash) => {
                     price: 0 
                 },
                 wallet: walletBuyer
-            })
+            });
+
+            //envio por websocket
+            const marketAll = await getAll();
 
             resolve({ canUpdate, market });
             
