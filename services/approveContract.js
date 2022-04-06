@@ -30,7 +30,7 @@ async function start(amount, walletUser){
         // console.log(newContractInstance.options.address)
     // })
     // .then(res => console.log(JSON.stringify(res)))
-    .then(res => console.log(JSON.stringify(res)))
+    .then(res => res)
     .catch(error => console.log(error));
 }
 module.exports = start;
