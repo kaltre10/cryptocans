@@ -8,7 +8,7 @@ const Claim = new Schema({
     },
     porcent: {
         type: Number,
-        default: 0,
+        default: 75,
     },
     date: {
         type: Date,
