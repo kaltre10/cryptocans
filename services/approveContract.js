@@ -15,7 +15,8 @@ async function start(amount, walletUser){
     from: walletOwner
     // gas: 25e6,
     // gasPrice: 20e9
-    }, (error, transactionHash) => console.log(transactionHash))
+    // }, (error, transactionHash) => console.log(transactionHash))
+    }, (error, transactionHash) => {response: "Hola1"})
     // .on('error', error => { })
     // .on('transactionHash', transactionHash => console.log(transactionHash))
     // .on('receipt', receipt => receipt)
@@ -30,7 +31,7 @@ async function start(amount, walletUser){
         // console.log(newContractInstance.options.address)
     // })
     // .then(res => console.log(JSON.stringify(res)))
-    .then(res => res)
+    .then(res => {response: "Hola2"})
     .catch(error => console.log(error));
 }
 module.exports = start;
