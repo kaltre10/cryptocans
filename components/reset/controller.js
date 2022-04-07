@@ -52,7 +52,6 @@ const resetEnergy = async (wallet) => {
             return;
 
         } catch (error) {
-            console.log(error)
             reject(error);
         }
     })

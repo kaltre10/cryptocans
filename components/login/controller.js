@@ -1,6 +1,8 @@
 const store = require('../user/store');
+const storeCans = require('../cans/store');
 const storeCanodrome = require('../canodrome/store');
 const storeClaim = require('../claim/store');
+const controllerReset = require('../reset/controller');
 
 const login = wallet => {
     return new Promise( async (resolve, reject) => {
@@ -8,9 +10,25 @@ const login = wallet => {
 
             if(!wallet) throw 'Wallet no valida';  
             const getWallet = await getUser(wallet);
+
+            //get cans
+            const cansUser = await storeCans.cansUser(getWallet.wallet);
+            //get canodromes
+            const canodromes = await storeCanodrome.getAll(getWallet.wallet);
+            //get claim
+            const claim = await storeClaim.get(getWallet.wallet);
+
+            //verify reset energy
+            controllerReset.resetEnergy(getWallet.wallet);
+
  
             if(getWallet){
-                resolve(getWallet); 
+                resolve({
+                    getWallet,
+                    cansUser,
+                    canodromes,
+                    claim
+                }); 
             }
            
             const newUser = await addWallet(wallet)
