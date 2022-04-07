@@ -1,12 +1,13 @@
 const store = require('./store');
 const { mint } = require('../../services/nftGenerate');
+const socket = require('../../socket').socket;
 
 const getCan = (id) => {
     return new Promise( async (resolve, reject) => {
         try { 
             if(!id) throw 'Id no valido';  
             let can = await store.get(id);
-            if(!can) resolve({ message: "Este Id no existe", can })
+            if(!can) resolve({ message: "Este Id no existe", can });
             resolve(can);  
         } catch (error) {
             reject(error);
@@ -49,6 +50,11 @@ const setStatusCan = (id, can) => {
         try {
             if(!id) throw "Datos Invalidos";
             const newCan = await store.set(id, can);
+
+            //websocket
+            const cansAll = await store.getAllCans();
+            socket.io.emit('data', cansAll);
+            
             resolve(newCan);
         } catch (error) {
             reject(error);
