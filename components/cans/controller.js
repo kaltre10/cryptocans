@@ -54,7 +54,7 @@ const setStatusCan = (id, can) => {
             //websocket
             const cansAll = await store.getAllCans();
             socket.io.emit('data', cansAll);
-            
+
             resolve(newCan);
         } catch (error) {
             reject(error);

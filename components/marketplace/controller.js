@@ -61,7 +61,7 @@ const buyMarket = (canId, walletBuyer, hash) => {
             });
 
             //envio por websocket
-            const marketAll = await getAll();
+            await getAll();
 
             resolve({ canUpdate, market });
             
