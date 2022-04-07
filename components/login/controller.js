@@ -10,19 +10,21 @@ const login = wallet => {
 
             if(!wallet) throw 'Wallet no valida';  
             const getWallet = await getUser(wallet);
-
-            //get cans
-            const cansUser = await storeCans.cansUser(getWallet.wallet);
-            //get canodromes
-            const canodromes = await storeCanodrome.getAll(getWallet.wallet);
-            //get claim
-            const claim = await storeClaim.get(getWallet.wallet);
-
-            //verify reset energy
-            controllerReset.resetEnergy(getWallet.wallet);
-
  
             if(getWallet){
+
+                //si existe el usuario
+
+                //get cans
+                const cansUser = await storeCans.cansUser(getWallet.wallet);
+                //get canodromes
+                const canodromes = await storeCanodrome.getAll(getWallet.wallet);
+                //get claim
+                const claim = await storeClaim.get(getWallet.wallet);
+
+                //verify reset energy
+                controllerReset.resetEnergy(getWallet.wallet);
+
                 resolve({
                     getWallet,
                     cansUser,
@@ -39,7 +41,21 @@ const login = wallet => {
             }
             await addCanodrome(data);
             await addClaim(wallet);
-            resolve({ message: "Agregado Correctamente!!", newUser });
+
+            //get cans
+            const cansUser = await storeCans.cansUser(newUser.wallet);
+            //get canodromes
+            const canodromes = await storeCanodrome.getAll(newUser.wallet);
+            //get claim
+            const claim = await storeClaim.get(newUser.wallet);
+            
+            resolve({ 
+                message: "Agregado Correctamente!!", 
+                newUser,
+                cansUser,
+                canodromes,
+                claim
+            });
 
         } catch (error) {
             reject(error);
