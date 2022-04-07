@@ -20,7 +20,7 @@ const routerApi = app => {
         router.use('/race', race);
         router.use('/marketplace', market);
         router.use('/activities', activities);
-        router.use('/canodromes', canodrome);
+        router.use('/canodrome', canodrome);
         router.use('/claim', claim);
         router.use('/reset', reset);
 }

@@ -7,10 +7,11 @@ const controllerReset = require('../reset/controller');
 const login = wallet => {
     return new Promise( async (resolve, reject) => {
         try {
-
+          
             if(!wallet) throw 'Wallet no valida';  
+            
             const getWallet = await getUser(wallet);
- 
+            
             if(getWallet){
 
                 //si existe el usuario
@@ -31,6 +32,7 @@ const login = wallet => {
                     canodromes,
                     claim
                 }); 
+                return;
             }
            
             const newUser = await addWallet(wallet)
