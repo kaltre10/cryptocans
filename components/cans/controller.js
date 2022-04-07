@@ -53,7 +53,7 @@ const setStatusCan = (id, can) => {
 
             //websocket
             const cansAll = await store.getAllCans();
-            console.log('okok')
+    
             socket.io.emit('data', cansAll);
 
             resolve(newCan);
