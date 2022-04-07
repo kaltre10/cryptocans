@@ -70,7 +70,6 @@ const claim = async (amount, wallet) => {
             
             resolve(responseBlockchain);
         } catch (error) {
-            console.log(error)
             reject(error);
         }
     })
