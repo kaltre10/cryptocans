@@ -5,7 +5,7 @@ const connect = (server) => {
     socket.io = socketIO(server,{
         cors: {
             origin: "*",
-            methods: ["GET", "POST"]
+            methods: ["GET", "POST", "PATCH", "DELETE"]
         }
     });
 }
