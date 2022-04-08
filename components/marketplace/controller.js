@@ -21,7 +21,7 @@ const updateCans = async (canId, data) => {
     return new Promise( async (resolve, reject) => {
         try {
             const canUpdate = await store.update(canId, data);
-
+            
             //envio por websocket
             await getAll();
 

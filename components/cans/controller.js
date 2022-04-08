@@ -1,4 +1,5 @@
 const store = require('./store');
+const storeCanodrome = require('../canodrome/store');
 const { mint } = require('../../services/nftGenerate');
 const socket = require('../../socket').socket;
 
@@ -49,11 +50,24 @@ const setStatusCan = (id, can) => {
     return new Promise( async (resolve, reject) => {
         try {
             if(!id) throw "Datos Invalidos";
-            const newCan = await store.set(id, can);
+            
+            //verify can in canodrome
 
+            //query can
+            const canVerify = await store.get(id);
+            //query canodromes
+            const canodromes = await storeCanodrome.getAll(canVerify.wallet);
+
+            let cans = [];
+            canodromes.map(canodrome => cans = [ ...cans, ...canodrome.cans ]);
+            const cansInCanodromes = cans.filter(can => can.can.id == id);
+            if(cansInCanodromes.length > 0) throw "Can in Canodrome";
+
+            //update can for sale
+            const newCan = await store.set(id, can);
+          
             //websocket
             const cansAll = await store.getAllCans();
-    
             socket.io.emit('data', cansAll);
 
             resolve(newCan);
