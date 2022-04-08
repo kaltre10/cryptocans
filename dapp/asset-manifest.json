@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/dapp/static/css/main.7a9dfc52.chunk.css",
-    "main.js": "/dapp/static/js/main.a5c0b7cb.chunk.js",
-    "main.js.map": "/dapp/static/js/main.a5c0b7cb.chunk.js.map",
+    "main.js": "/dapp/static/js/main.3c1bdcc5.chunk.js",
+    "main.js.map": "/dapp/static/js/main.3c1bdcc5.chunk.js.map",
     "runtime-main.js": "/dapp/static/js/runtime-main.1a816cb7.js",
     "runtime-main.js.map": "/dapp/static/js/runtime-main.1a816cb7.js.map",
     "static/css/2.d948c4b1.chunk.css": "/dapp/static/css/2.d948c4b1.chunk.css",
@@ -24,6 +24,6 @@
     "static/css/2.d948c4b1.chunk.css",
     "static/js/2.ce8364e4.chunk.js",
     "static/css/main.7a9dfc52.chunk.css",
-    "static/js/main.a5c0b7cb.chunk.js"
+    "static/js/main.3c1bdcc5.chunk.js"
   ]
 }
