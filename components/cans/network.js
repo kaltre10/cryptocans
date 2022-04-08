@@ -3,6 +3,18 @@ const router = express.Router();
 const response = require('../../network/response');
 const controller = require('./controller');
 
+//validate can in market 
+router.get('/', async (req, res) => {
+    const { canId } = req.body;
+    try {
+        if(!canId) throw "Id Invalido";
+        const responseController = await controller.validateCan(canId);
+        response.success(req, res, responseController, 200);
+    } catch (error) {
+        response.error(req, res, error, 401);
+    }
+});
+
 router.get('/:id', async (req, res) => {
     const { id } = req.params;
     try {

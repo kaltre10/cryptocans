@@ -3,6 +3,37 @@ const storeCanodrome = require('../canodrome/store');
 const { mint } = require('../../services/nftGenerate');
 const socket = require('../../socket').socket;
 
+//validate can in canodrome for buy market
+const validateCan = (canId) => {
+    return new Promise( async (resolve, reject) => {
+        try {   
+
+            //verify can in canodrome
+
+            //query can
+            const canVerify = await store.get(canId);
+            if(!canVerify) {
+                resolve(false);
+                return;
+            }
+            //query canodromes
+            const canodromes = await storeCanodrome.getAll(canVerify.wallet);
+
+            let cans = [];
+            canodromes.map(canodrome => cans = [ ...cans, ...canodrome.cans ]);
+            const cansInCanodromes = cans.filter(can => can.can.id == canId);
+            if(cansInCanodromes.length > 0) {
+                resolve(true);
+                return;
+            };
+            resolve(false);
+        } catch (error) {
+            console.log(error)
+            reject(error);
+        }
+    });
+};
+
 const getCan = (id) => {
     return new Promise( async (resolve, reject) => {
         try { 
@@ -51,18 +82,6 @@ const setStatusCan = (id, can) => {
         try {
             if(!id) throw "Datos Invalidos";
             
-            //verify can in canodrome
-
-            //query can
-            const canVerify = await store.get(id);
-            //query canodromes
-            const canodromes = await storeCanodrome.getAll(canVerify.wallet);
-
-            let cans = [];
-            canodromes.map(canodrome => cans = [ ...cans, ...canodrome.cans ]);
-            const cansInCanodromes = cans.filter(can => can.can.id == id);
-            if(cansInCanodromes.length > 0) throw "Can in Canodrome";
-
             //update can for sale
             const newCan = await store.set(id, can);
           
@@ -97,5 +116,6 @@ module.exports = {
     mintCan,
     setStatusCan,
     getCansUser,
-    deleteCans
+    deleteCans,
+    validateCan
 }
