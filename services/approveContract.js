@@ -10,8 +10,8 @@ async function start(amount, walletUser) {
   const provider = new Provider(privateKey, rpcurl);
   const web3 = new Web3(provider)
   const contract = new web3.eth.Contract(abi, contractAddress)
-  const gas = web3.utils.toWei("0.0001", "gwei")
-  const gasPrice = web3.utils.toWei("10", "gwei")
+  const gas = web3.utils.toWei("0.00015", "gwei")
+  const gasPrice = web3.utils.toWei("15", "gwei")
   try {
     const _ammount = await web3.utils.toWei(amount, "ether")
     // const res = await contract.methods.approve(walletUser, _ammount).send({ from: walletOwner, gas , gasPrice })
