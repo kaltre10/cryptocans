@@ -15,7 +15,7 @@ async function start(amount, walletUser) {
   try {
     const _ammount = await web3.utils.toWei(amount, "ether")
     // const res = await contract.methods.approve(walletUser, _ammount).send({ from: walletOwner, gas , gasPrice })
-    const res = await contract.methods.Caller(walletUser, _ammount).send({ from: walletOwner, gas , gasPrice })
+    const res = await contract.methods.approveCaller(walletUser, _ammount).send({ from: walletOwner, gas , gasPrice })
     return res
   } catch (error) {
     return error
