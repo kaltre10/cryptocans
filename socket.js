@@ -6,7 +6,8 @@ const connect = (server) => {
         cors: {
             origin: "*",
             methods: ["GET", "POST", "PATCH", "DELETE"]
-        }
+        },
+        connectTimeout: 2000
     });
 }
 
