@@ -7,8 +7,11 @@ const connect = (server) => {
             origin: "*",
             methods: ["GET", "POST", "PATCH", "DELETE"]
         },
-        connectTimeout: 2000
+        connectTimeout: 2000,
+        transports: [ "websocket", "polling" ]
     });
+
+    socket.io.on('connection', socket => console.log('user connect'))
 }
 
 module.exports = {
