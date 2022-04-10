@@ -60,16 +60,20 @@ const claim = async (amount, wallet) => {
             //calc new balance
             const balanceAfter = user.balance - amount;
 
-            const responseBlockchain = await approveContract(amount, wallet);
+            //discount percentage
+            const claim = await getClaim(wallet);
+            const discountAmount = amount - (amount * (claim.porcent / 100));
+            const responseBlockchain = await approveContract(discountAmount, wallet);
 
-            //update balance
+            //update new balance
             const updateBalance = await storeUser.update({wallet, balanceAfter});
 
             //update reset date claim
             await storeClaim.update(wallet, { porcent: 75, date: Date(), status: false });
-            
+   
             resolve(responseBlockchain);
         } catch (error) {
+            console.log(error)
             reject(error);
         }
     })
