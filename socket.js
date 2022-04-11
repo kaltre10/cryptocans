@@ -11,7 +11,7 @@ const connect = (server) => {
         transports: [ "websocket", "polling" ]
     });
 
-    socket.io.on('connection', socket => console.log('user connect'))
+    // socket.io.on('connection', socket => console.log('user connect'))
 }
 
 module.exports = {

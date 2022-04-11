@@ -54,6 +54,9 @@ const claim = async (amount, wallet) => {
             //check user balance
             const user = await storeUser.get(wallet);
             if(amount <= 0) throw "La cantidad no puede ser menor o igual a 0";
+
+            //validate min
+            if(amount < 100) throw "La cantidad no puede ser menor o igual a 100";
             
             if(user.balance < amount)  throw "disculpe!! No tiene fondos suficientes";
 
@@ -62,8 +65,9 @@ const claim = async (amount, wallet) => {
 
             //discount percentage
             const claim = await getClaim(wallet);
-            const discountAmount = amount - (amount * (claim.porcent / 100));
-            const responseBlockchain = await approveContract(discountAmount, wallet);
+            const feePercent = (amount * (claim.porcent / 100));
+            const discountAmount = amount - feePercent;
+            const responseBlockchain = await approveContract(discountAmount, wallet, feePercent);
 
             //update new balance
             const updateBalance = await storeUser.update({wallet, balanceAfter});
@@ -71,7 +75,7 @@ const claim = async (amount, wallet) => {
             //update reset date claim
             await storeClaim.update(wallet, { porcent: 75, date: Date(), status: false });
    
-            resolve(responseBlockchain);
+            resolve({ responseBlockchain, discountAmount });
         } catch (error) {
             console.log(error)
             reject(error);

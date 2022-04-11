@@ -2,6 +2,7 @@ const store = require('../user/store');
 const storeCans = require('../cans/store');
 const storeCanodrome = require('../canodrome/store');
 const storeClaim = require('../claim/store');
+const storageOraculo = require('../oraculo/store');
 const controllerReset = require('../reset/controller');
 
 const login = wallet => {
@@ -26,11 +27,15 @@ const login = wallet => {
                 //verify reset energy
                 controllerReset.resetEnergy(getWallet.wallet);
 
+                //get oracule
+                const oracule = await storageOraculo.get();
+
                 resolve({
                     getWallet,
                     cansUser,
                     canodromes,
-                    claim
+                    claim,
+                    oracule
                 }); 
                 return;
             }
@@ -60,6 +65,7 @@ const login = wallet => {
             });
 
         } catch (error) {
+            console.log(error)
             reject(error);
         }        
     })
