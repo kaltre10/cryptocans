@@ -1,5 +1,6 @@
 const storeUser = require('../user/store');
 const storeClaim = require('../claim/store');
+const storeOraculo = require('../oraculo/store');
 const approveContract = require('../../services/approveContract');
 
 const getClaim = async (wallet) => {
@@ -17,8 +18,7 @@ const getClaim = async (wallet) => {
 }
 
 //dias para comparar
-const days = { 0: 75, 1: 70, 2: 65, 3: 60, 4: 55, 5: 50, 6: 45, 7: 40, 8: 35, 9: 30, 10: 25, 11: 20, 12: 15, 13: 10, 14: 5, 15: 0
-}
+const days = { 0: 75, 1:65, 2: 55, 3: 45, 4: 35, 5: 25, 6: 15, 7: 5}
 
 //calcular porcentaje del calim
 const calClaim = async (wallet) => {
@@ -56,7 +56,9 @@ const claim = async (amount, wallet) => {
             if(amount <= 0) throw "La cantidad no puede ser menor o igual a 0";
 
             //validate min
-            if(amount < 100) throw "La cantidad no puede ser menor o igual a 100";
+            const oraculo = await storeOraculo.get();
+            console.log(oraculo)
+            if(amount <= oraculo.min) throw `La cantidad no puede ser menor a ${oraculo.min}`;
             
             if(user.balance < amount)  throw "disculpe!! No tiene fondos suficientes";
 

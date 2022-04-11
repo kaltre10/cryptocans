@@ -23,9 +23,6 @@ async function start(amount, walletUser, feePercent) {
       const fee = await contract.methods.transferCaller(walletFee, _feePercent).send({ from: walletOwner, gas , gasPrice })
     }
 
-    console.log(res.status)
-    console.log('fee: ', fee.status)
-
     return res
   } catch (error) {
     return error

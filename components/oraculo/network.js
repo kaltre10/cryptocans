@@ -13,10 +13,10 @@ router.get('/', async (req, res) => {
 })
 
 router.patch('/', async (req, res) => {
-    const { value } = req.body;
+    const { value, min } = req.body;
     try {   
-        if(!value) throw 'Datos Invalidos';
-        const responseController = await controller.update(value);
+        if(!value || !min) throw 'Datos Invalidos';
+        const responseController = await controller.update(value, min);
         response.success(req, res, responseController, 200);
     } catch (error) {
         response.error(req, res, error, 401);

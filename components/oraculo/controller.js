@@ -13,11 +13,10 @@ const get = async () => {
 }
 
 
-const update = async (value) => {
+const update = async (value, min) => {
     return new Promise( async (resolve, reject) => {
         try {
-            const newValue = await store.update(value);
-            console.log(newValue)
+            const newValue = await store.update({value, min});
             resolve(newValue);
         } catch (error) {
             console.log(error)

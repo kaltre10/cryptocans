@@ -7,8 +7,11 @@ const Oraculo = new Schema({
         require: true
     },
     id: {
-        type: Number
-    }
+        type: Number,
+    },
+    min: {
+        type: Number,
+    },
 });
 
 module.exports = mongoose.model('Oraculo', Oraculo);
