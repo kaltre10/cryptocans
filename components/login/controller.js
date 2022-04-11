@@ -35,7 +35,10 @@ const login = wallet => {
                     cansUser,
                     canodromes,
                     claim,
-                    oracule: oracule.value
+                    oracule:  {
+                        value: oracule.value,
+                        min: oracule.min
+                    }
                 }); 
                 return;
             }
@@ -65,7 +68,10 @@ const login = wallet => {
                 cansUser,
                 canodromes,
                 claim,
-                oracule: oracule.value
+                oracule: {
+                    value: oracule.value,
+                    min: oracule.min
+                }
             });
 
         } catch (error) {
