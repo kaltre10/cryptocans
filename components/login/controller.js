@@ -35,7 +35,7 @@ const login = wallet => {
                     cansUser,
                     canodromes,
                     claim,
-                    oracule
+                    oracule: oracule.value
                 }); 
                 return;
             }
@@ -55,17 +55,20 @@ const login = wallet => {
             const canodromes = await storeCanodrome.getAll(newUser.wallet);
             //get claim
             const claim = await storeClaim.get(newUser.wallet);
+
+            //get oracule
+            const oracule = await storageOraculo.get();
             
             resolve({ 
                 message: "Agregado Correctamente!!", 
                 newUser,
                 cansUser,
                 canodromes,
-                claim
+                claim,
+                oracule: oracule.value
             });
 
         } catch (error) {
-            console.log(error)
             reject(error);
         }        
     })
