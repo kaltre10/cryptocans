@@ -4,8 +4,8 @@ const response = require('../../network/response');
 const controller = require('./controller');
 
 //validate can in market 
-router.get('/', async (req, res) => {
-    const { canId } = req.body;
+router.get('/validate/:canId', async (req, res) => {
+    const { canId } = req.params;
     try {
         if(!canId) throw "Id Invalido";
         const responseController = await controller.validateCan(canId);
