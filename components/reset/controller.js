@@ -19,6 +19,9 @@ const resetEnergy = async (wallet) => {
             const date = new Date();
             const reset = new Date(user.reset);
 
+            //date reset for return
+            dayReset = `${reset.getDate()}/${reset.getMonth()}/${reset.getFullYear()} | ${reset.getHours()}:${reset.getMinutes()}`;
+
             //verificamos si ha pasado mas de 2 dias
             const dayDiferencia = date.getDate() - reset.getDate();
 
@@ -26,7 +29,7 @@ const resetEnergy = async (wallet) => {
             if( dayDiferencia == 0 && 
                 date.getMonth() == reset.getMonth() &&
                 date.getFullYear() == reset.getFullYear()){
-                    resolve(false)
+                    resolve(dayReset)
                     return;
                 } 
 
@@ -44,11 +47,11 @@ const resetEnergy = async (wallet) => {
 
                 //update user date reset
                 await storeUser.set(walletUser, { reset: Date() });
-                resolve('Energy Completed');
+                resolve(dayReset);
                 return;
             }
            
-            resolve();
+            resolve(dayReset);
             return;
 
         } catch (error) {

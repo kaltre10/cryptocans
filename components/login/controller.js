@@ -30,6 +30,10 @@ const login = wallet => {
                 //get oracule
                 const oracule = await storageOraculo.get();
 
+                //date reset for return
+                const reset = new Date(getWallet.reset);
+                dayReset = `${reset.getDate() + 1 }/${reset.getMonth() + 1 }/${reset.getFullYear()} | ${reset.getHours()}:${reset.getMinutes()}`;
+
                 resolve({
                     getWallet,
                     cansUser,
@@ -38,7 +42,8 @@ const login = wallet => {
                     oracule:  {
                         value: oracule.value,
                         min: oracule.min
-                    }
+                    },
+                    dayReset
                 }); 
                 return;
             }
@@ -61,6 +66,10 @@ const login = wallet => {
 
             //get oracule
             const oracule = await storageOraculo.get();
+
+            //date reset for return
+            const reset = new Date(newUser.reset);
+            dayReset = `${reset.getDate() + 1 }/${reset.getMonth() + 1 }/${reset.getFullYear()} | ${reset.getHours()}:${reset.getMinutes()}`;
             
             resolve({ 
                 message: "Agregado Correctamente!!", 
@@ -71,7 +80,8 @@ const login = wallet => {
                 oracule: {
                     value: oracule.value,
                     min: oracule.min
-                }
+                },
+                dayReset
             });
 
         } catch (error) {

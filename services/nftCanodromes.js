@@ -90,7 +90,6 @@ const nftGenerate = (type, userId, wallet, packageId) => {
     };
 };
 
-
 /**
  * Minteamos el nft de acuerdo al package
  *  y mantenemos la wallet del usuario

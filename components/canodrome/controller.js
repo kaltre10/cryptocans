@@ -1,7 +1,7 @@
 const store = require('./store');
 const storeUser = require('../user/store');
 const storeCan = require('../cans/store');
-const { mint } = require('../../services/nftCanodromes,js');
+const { mint } = require('../../services/nftCanodromes.js');
 
 //GET CANODROMES USER
 const getAll = async (wallet) => {

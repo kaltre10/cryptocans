@@ -57,8 +57,8 @@ const claim = async (amount, wallet) => {
 
             //validate min
             const oraculo = await storeOraculo.get();
-            console.log(oraculo)
-            if(amount <= oraculo.min) throw `La cantidad no puede ser menor a ${oraculo.min}`;
+        
+            if(amount < oraculo.min) throw `La cantidad no puede ser menor a ${oraculo.min}`;
             
             if(user.balance < amount)  throw "disculpe!! No tiene fondos suficientes";
 
