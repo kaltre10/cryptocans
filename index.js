@@ -33,7 +33,7 @@ routerApi(app);
 
     app.get('*/', (req, res) => res.status(404).send('Error 404'));
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 serve.listen( port, () => {
     console.log(`server activo en el puerto ${port}`);
