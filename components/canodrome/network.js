@@ -36,6 +36,18 @@ router.post('/', async (req, res) => {
     }
 });
 
+//MINT CANODROME
+router.post('/mint', async (req, res) => {
+    const { wallet, packageId } = req.body;
+    try {
+        if(!wallet || !packageId) throw "Datos Invalidos!!";
+        const responseController = await controller.mintCanodrome(wallet, packageId);
+        response.success(req, res, responseController, 200);
+    } catch (error) {
+        response.error(req, res, error, 401);
+    }
+});
+
 
 //UPDATE CANODROME
 router.patch('/:id', async (req, res) => {

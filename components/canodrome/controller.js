@@ -1,6 +1,7 @@
 const store = require('./store');
 const storeUser = require('../user/store');
 const storeCan = require('../cans/store');
+const { mint } = require('../../services/nftCanodromes,js');
 
 //GET CANODROMES USER
 const getAll = async (wallet) => {
@@ -30,6 +31,7 @@ const get = async (id) => {
 const add = (wallet, type) => {
     return new Promise( async (resolve, reject) => {
         try {
+
             const user = await storeUser.get(wallet);
             const data = {
                 wallet: wallet.toLowerCase(),
@@ -38,8 +40,31 @@ const add = (wallet, type) => {
 
             //si existe el typo de canodromo
             if(type) data.type = type;
-
+            
             const canodrome = await store.add(data);
+            resolve(canodrome);
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
+//MINT CANODROME
+const mintCanodrome = (wallet, packageId) => {
+    return new Promise( async (resolve, reject) => {
+        try {
+
+            const user = await storeUser.get(wallet);
+            
+            const data = {
+                wallet: wallet.toLowerCase(),
+                userId: user._id,
+                packageId
+            }
+  
+            const result = await mint(data);
+
+            const canodrome = await store.add(result);
             resolve(canodrome);
         } catch (error) {
             reject(error);
@@ -114,5 +139,6 @@ module.exports = {
     get,
     add,
     update,
-    deleteCan
+    deleteCan,
+    mintCanodrome
 }

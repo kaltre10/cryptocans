@@ -29,6 +29,10 @@ const Canodrome = new Schema({
         type: String,
         default: "Name Common Canodrome"
     },
+    packageId: { 
+        type: Number,
+        default: 0
+    },
     date: { 
         type: Date,
         default: Date.now 
