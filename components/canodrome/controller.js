@@ -54,7 +54,9 @@ const mintCanodrome = (wallet, packageId) => {
     return new Promise( async (resolve, reject) => {
         try {
 
-            const user = await storeUser.get(wallet);
+            const user = await storeUser.get(wallet.toLowerCase());
+
+            if(!user) throw 'User does not exist';
             
             const data = {
                 wallet: wallet.toLowerCase(),
@@ -65,8 +67,10 @@ const mintCanodrome = (wallet, packageId) => {
             const result = await mint(data);
 
             const canodrome = await store.add(result);
+            
             resolve(canodrome);
         } catch (error) {
+            console.log(error)
             reject(error);
         }
     });

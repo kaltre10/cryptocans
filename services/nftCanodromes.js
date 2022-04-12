@@ -68,8 +68,8 @@ const typeGenerateLegendary = (numRandom) => {
  */
 const typePackage = {
     1: () => typeGenerateCommon(random(1, 1000000)),   //common
-    2: () => typeGenerateEpic(random(1, 1000000)),     //epic
-    3: () => typeGenerateLegendary(random(1, 1000000)) //legendary 
+    // 2: () => typeGenerateEpic(random(1, 1000000)),     //epic
+    2: () => typeGenerateLegendary(random(1, 1000000)) //legendary 
 }
 
 /**
