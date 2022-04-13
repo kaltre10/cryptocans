@@ -62,6 +62,48 @@ router.patch('/:id', async (req, res) => {
     }
 });
 
+//SELL CANODROME
+router.patch('/sell/:canodromeId', async (req, res) => {
+    const { canodromeId } = req.params;
+    const canodrome = req.body;
+
+    try {
+        if(!canodromeId || !canodrome) throw "Data Invalid!!";
+        const responseController = await controller.sellCanodrome(canodromeId, canodrome);
+        response.success(req, res, responseController, 200);
+    } catch (error) {
+        console.log(error)
+        response.error(req, res, error, 401);
+    }
+});
+
+//REMOVE CANODROME
+router.patch('/remove/:canodromeId', async (req, res) => {
+    const { canodromeId } = req.params;
+
+    try {
+        if(!canodromeId) throw "Data Invalid!!";
+        const responseController = await controller.removeCanodrome(canodromeId);
+        response.success(req, res, responseController, 200);
+    } catch (error) {
+        console.log(error)
+        response.error(req, res, error, 401);
+    }
+});
+
+
+//UPDATE STATUS CANODROME
+router.post('/status/:canodromeId/:status', async (req, res) => {
+    const { canodromeId, status } = req.params;
+    try {
+        if(!canodromeId || !status) throw "Datos Invalidos!!";
+        const responseController = await controller.setStatusCanodrome(canodromeId, status);
+        response.success(req, res, responseController, 200);
+    } catch (error) {
+        response.error(req, res, error, 401);
+    }
+});
+
 //DELETE CAN
 router.delete('/:canodromeId/:canId', async (req, res) => {
     const { canodromeId, canId } = req.params;

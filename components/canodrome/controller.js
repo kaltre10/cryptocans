@@ -2,6 +2,7 @@ const store = require('./store');
 const storeUser = require('../user/store');
 const storeCan = require('../cans/store');
 const { mint } = require('../../services/nftCanodromes.js');
+const socket = require('../../socket').socket;
 
 //GET CANODROMES USER
 const getAll = async (wallet) => {
@@ -44,6 +45,7 @@ const add = (wallet, type) => {
             const canodrome = await store.add(data);
             resolve(canodrome);
         } catch (error) {
+            console.log(error)
             reject(error);
         }
     });
@@ -131,6 +133,58 @@ const update = (id, can) => {
     });
 }
 
+const sellCanodrome = (canodromeId, canodrome) => {
+    return new Promise( async (resolve, reject) => {
+        try {
+            const newCanodrome = await store.setSellCanodrome(canodromeId, canodrome.canodrome);
+
+            //websocket
+            const canodromesMarket = await store.getCanodromeInMarket();
+            socket.io.emit('canodromesMarket', canodromesMarket);
+
+            resolve(newCanodrome);
+
+        } catch (error) {
+            console.log(error)
+            reject(error);
+        }
+    })
+}
+
+const removeCanodrome = canodromeId => {
+    return new Promise( async (resolve, reject) => {
+        try {
+
+            const newCanodrome = await store.setRemoveCanodrome(canodromeId);
+
+            //websocket
+            const canodromesMarket = await store.getCanodromeInMarket();
+            socket.io.emit('canodromesMarket', canodromesMarket);
+
+            resolve(newCanodrome);
+
+        } catch (error) {
+            console.log(error)
+            reject(error);
+        }
+    })
+}
+
+const setStatusCanodrome = (canodromeId, status) => {
+    return new Promise( async (resolve, reject) => {
+        try {
+
+            const newCanodrome = await store.setStatus(canodromeId, status);
+
+            resolve(newCanodrome);
+
+        } catch (error) {
+            console.log(error)
+            reject(error);
+        }
+    })
+}
+
 //DELETE CAN
 const deleteCan = (canodromeId, canId) => {
     return new Promise( async (resolve, reject) => {
@@ -153,5 +207,8 @@ module.exports = {
     add,
     update,
     deleteCan,
-    mintCanodrome
+    mintCanodrome,
+    sellCanodrome,
+    removeCanodrome,
+    setStatusCanodrome
 }

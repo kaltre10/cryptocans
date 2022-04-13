@@ -4,6 +4,11 @@ const Cans = require('../cans/model');
 const { Schema } = mongoose;
 
 const Canodrome = new Schema({
+    id:{
+        type: Number,
+        default: 0,
+        required: true
+    },
     wallet: {
         type: String,
         required: true
@@ -36,6 +41,18 @@ const Canodrome = new Schema({
     date: { 
         type: Date,
         default: Date.now 
+    },
+    onSale:{
+        type: Object,
+        default: {
+            sale: false,
+            price: 0
+        }
+    },
+    status: {
+        type: Number,
+        default: 1,
+        required: true
     }
 });
 

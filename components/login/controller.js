@@ -85,6 +85,7 @@ const login = wallet => {
             });
 
         } catch (error) {
+            console.log(error)
             reject(error);
         }        
     })
