@@ -100,14 +100,23 @@ const update = (id, can) => {
             const checkCan = await storeCan.get(can.can.id);
             if(!checkCan) throw 'Disculpe este can no existe';
           
-            //check cans pertene al user
+            //check cans
             const checkCanodrome = await get(id);
             if(checkCanodrome.wallet !== checkCan.wallet) throw 'Disculpe este can no le pertenece';
 
-            //check mismo can
-            const arrayCans = checkCanodrome.cans.map(can => can.can.id );
+            //all canodromes
+            const canodromesAllUser = await store.getAll(checkCan.wallet);
+            const canodromesAll = canodromesAllUser.map((canodrome) => canodrome.cans);
+            const canodromesAllFlat = canodromesAll.flat();
+            const arrayCanInCanodromes = canodromesAllFlat.map(can => can.can.id);
+
+            //check can in canodrome
+            if(arrayCanInCanodromes.includes(can.can.id)) throw 'Este can ya se encuentra asignado a un canodromo';
+            
+            
+            // const arrayCans = checkCanodrome.cans.map(can => can.can.id);
       
-            if(arrayCans.includes(can.can.id)) throw 'Este can ya se encuentra en el canodromo';
+            // if(arrayCans.includes(can.can.id)) throw 'Este can ya se encuentra en el canodromo';
 
             const checkLength = await checkAddCan(id);
            
