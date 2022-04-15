@@ -1,6 +1,6 @@
 const store = require('./store');
 const canStore = require('../cans/store');
-const canodromeStore = require('./store');
+const canodromeStore = require('../canodrome/store');
 const socket = require('../../socket').socket;
 
 const getAll = async () => {
