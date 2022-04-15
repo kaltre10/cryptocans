@@ -38,10 +38,10 @@ router.post('/', async (req, res) => {
 
 //MINT CANODROME
 router.post('/mint', async (req, res) => {
-    const { wallet, packageId } = req.body;
+    const { wallet, packageId, id } = req.body;
     try {
         if(!wallet || !packageId) throw "Datos Invalidos!!";
-        const responseController = await controller.mintCanodrome(wallet, packageId);
+        const responseController = await controller.mintCanodrome(wallet, packageId, id);
         response.success(req, res, responseController, 200);
     } catch (error) {
         response.error(req, res, error, 401);
@@ -80,7 +80,6 @@ router.patch('/sell/:canodromeId', async (req, res) => {
 //REMOVE CANODROME
 router.patch('/remove/:canodromeId', async (req, res) => {
     const { canodromeId } = req.params;
-
     try {
         if(!canodromeId) throw "Data Invalid!!";
         const responseController = await controller.removeCanodrome(canodromeId);

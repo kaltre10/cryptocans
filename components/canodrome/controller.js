@@ -52,7 +52,7 @@ const add = (wallet, type) => {
 }
 
 //MINT CANODROME
-const mintCanodrome = (wallet, packageId) => {
+const mintCanodrome = (wallet, packageId, canodromeId) => {
     return new Promise( async (resolve, reject) => {
         try {
 
@@ -67,7 +67,8 @@ const mintCanodrome = (wallet, packageId) => {
             }
   
             const result = await mint(data);
-
+            //add id for blockachain
+            result.id = canodromeId;
             const canodrome = await store.add(result);
             
             resolve(canodrome);
@@ -136,8 +137,10 @@ const update = (id, can) => {
 const sellCanodrome = (canodromeId, canodrome) => {
     return new Promise( async (resolve, reject) => {
         try {
-            const newCanodrome = await store.setSellCanodrome(canodromeId, canodrome.canodrome);
-
+            
+            canodrome.cans = [];
+            const newCanodrome = await store.setSellCanodrome(canodromeId, canodrome);
+            
             //websocket
             const canodromesMarket = await store.getCanodromeInMarket();
             socket.io.emit('canodromesMarket', canodromesMarket);
