@@ -1,14 +1,16 @@
 const store = require('./store');
 const canStore = require('../cans/store');
+const canodromeStore = require('./store');
 const socket = require('../../socket').socket;
 
 const getAll = async () => {
     return new Promise( async (resolve, reject) => {
         try {
             const cansAll = await canStore.getAllCans();
-            
+            const canodromesMarket = await canodromeStore.getCanodromeInMarket();
             //websocket
-            socket.io.emit('data', cansAll);  
+            socket.io.emit('data', cansAll);   
+            socket.io.emit('canodromesMarket', canodromesMarket);
 
             resolve(cansAll);
         } catch (error) {
