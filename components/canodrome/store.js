@@ -1,6 +1,6 @@
 const Model = require('./model');
 
-const getCanodromeInMarket = async () => await Model.find({ "onSale.sale": true, status: 1 });
+const getCanodromeInMarket = async () => await Model.find({ "onSale.sale": true, status: 1 }).sort({ "onSale.price": 1 });;
 const getAll = wallet => Model.find({ wallet }).populate('userId').exec();
 const getCanodrome = _id => Model.findOne({ _id }).populate('userId').exec();
 const addCanodrome = data => Model(data).save();

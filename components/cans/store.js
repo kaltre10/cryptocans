@@ -1,6 +1,6 @@
 const Model = require('./model');
 
-const getAllCans = async () => await Model.find({ "onSale.sale": true, status: 1 });
+const getAllCans = async () => await Model.find({ "onSale.sale": true, status: 1 }).sort({ "onSale.price": 1 });
 
 const getCans = id => Model.findOne({ id });
 
