@@ -65,8 +65,7 @@ router.patch('/:id', async (req, res) => {
 //SELL CANODROME
 router.patch('/sell/:canodromeId', async (req, res) => {
     const { canodromeId } = req.params;
-    const canodrome = req.body;
-
+    const  {canodrome} = req.body;
     try {
         if(!canodromeId || !canodrome) throw "Data Invalid!!";
         const responseController = await controller.sellCanodrome(canodromeId, canodrome);
