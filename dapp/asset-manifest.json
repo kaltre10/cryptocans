@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/dapp/static/css/main.e03efafc.chunk.css",
-    "main.js": "/dapp/static/js/main.d8953c8a.chunk.js",
-    "main.js.map": "/dapp/static/js/main.d8953c8a.chunk.js.map",
+    "main.js": "/dapp/static/js/main.406fa775.chunk.js",
+    "main.js.map": "/dapp/static/js/main.406fa775.chunk.js.map",
     "runtime-main.js": "/dapp/static/js/runtime-main.1a816cb7.js",
     "runtime-main.js.map": "/dapp/static/js/runtime-main.1a816cb7.js.map",
     "static/css/2.d948c4b1.chunk.css": "/dapp/static/css/2.d948c4b1.chunk.css",
-    "static/js/2.b5e76028.chunk.js": "/dapp/static/js/2.b5e76028.chunk.js",
-    "static/js/2.b5e76028.chunk.js.map": "/dapp/static/js/2.b5e76028.chunk.js.map",
+    "static/js/2.22048a27.chunk.js": "/dapp/static/js/2.22048a27.chunk.js",
+    "static/js/2.22048a27.chunk.js.map": "/dapp/static/js/2.22048a27.chunk.js.map",
     "index.html": "/dapp/index.html",
     "static/css/2.d948c4b1.chunk.css.map": "/dapp/static/css/2.d948c4b1.chunk.css.map",
     "static/css/main.e03efafc.chunk.css.map": "/dapp/static/css/main.e03efafc.chunk.css.map",
-    "static/js/2.b5e76028.chunk.js.LICENSE.txt": "/dapp/static/js/2.b5e76028.chunk.js.LICENSE.txt",
+    "static/js/2.22048a27.chunk.js.LICENSE.txt": "/dapp/static/js/2.22048a27.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/dapp/static/media/stadium.e17f5253.webp",
     "static/media/bootstrap-icons.css": "/dapp/static/media/bootstrap-icons.c1d7432e.woff",
     "static/media/canodrome.0b1f7154.png": "/dapp/static/media/canodrome.0b1f7154.png",
@@ -20,8 +20,8 @@
   "entrypoints": [
     "static/js/runtime-main.1a816cb7.js",
     "static/css/2.d948c4b1.chunk.css",
-    "static/js/2.b5e76028.chunk.js",
+    "static/js/2.22048a27.chunk.js",
     "static/css/main.e03efafc.chunk.css",
-    "static/js/main.d8953c8a.chunk.js"
+    "static/js/main.406fa775.chunk.js"
   ]
 }
