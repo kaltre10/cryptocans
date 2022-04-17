@@ -52,7 +52,7 @@ const add = (wallet, type) => {
 }
 
 //MINT CANODROME
-const mintCanodrome = (wallet, packageId, canodromeId) => {
+const mintCanodrome = (wallet, packageId, canodromeId, hash) => {
     return new Promise( async (resolve, reject) => {
         try {
 
@@ -67,8 +67,10 @@ const mintCanodrome = (wallet, packageId, canodromeId) => {
             }
   
             const result = await mint(data);
-            //add id for blockachain
+            
+            //add id and hash for blockchain
             result.id = canodromeId;
+            result.hash = hash;
             const canodrome = await store.add(result);
             
             resolve(canodrome);

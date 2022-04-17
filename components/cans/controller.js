@@ -60,7 +60,7 @@ const getCansUser = wallet => {
     });
 }
 
-const mintCan = ({packageId, wallet, canId}) => {
+const mintCan = ({packageId, wallet, canId, hash}) => {
     return new Promise( async (resolve, reject) => {
         try {
             
@@ -68,6 +68,7 @@ const mintCan = ({packageId, wallet, canId}) => {
            
             const can = mint(packageId, wallet); //minteamos el can
             can.id = canId;
+            can.hash = hash;
             const newCan = await store.add(can); //agregamos el nuevo can
             resolve(newCan);
 
