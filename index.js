@@ -26,6 +26,7 @@ routerApi(app);
     app.get('/dapp', (req, res) => res.sendFile(path.join(__dirname, './dapp/index.html')));
     app.get('/dashboard', (req, res) => res.sendFile(path.join(__dirname, './dapp/index.html')));
     app.get('/market', (req, res) => res.sendFile(path.join(__dirname, './dapp/index.html')));
+    app.get('/marketcanodromes', (req, res) => res.sendFile(path.join(__dirname, './dapp/index.html')));
     app.get('/shop', (req, res) => res.sendFile(path.join(__dirname, './dapp/index.html')));
     app.get('/race', (req, res) => res.sendFile(path.join(__dirname, './dapp/index.html')));
     app.get('/admin', (req, res) => res.sendFile(path.join(__dirname, './dapp/index.html')));
