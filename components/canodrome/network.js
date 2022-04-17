@@ -38,10 +38,10 @@ router.post('/', async (req, res) => {
 
 //MINT CANODROME
 router.post('/mint', async (req, res) => {
-    const { wallet, packageId, canodromeId, hash } = req.body;
+    const { wallet, packageId, canodromeId } = req.body;
     try {
         if(!wallet || !packageId) throw "Datos Invalidos!!";
-        const responseController = await controller.mintCanodrome(wallet, packageId, canodromeId, hash);
+        const responseController = await controller.mintCanodrome(wallet, packageId, canodromeId);
         response.success(req, res, responseController, 200);
     } catch (error) {
         response.error(req, res, error, 401);

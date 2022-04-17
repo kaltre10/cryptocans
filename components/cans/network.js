@@ -39,11 +39,11 @@ router.get('/user/:wallet', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { packageId, wallet, canId, hash } = req.body;
+    const { packageId, wallet, canId } = req.body;
     try {
         if(!packageId || !wallet, !canId, !hash) throw "Datos Invalidos!!";
         let walletUser = wallet.toLowerCase(); 
-        const responseController = await controller.mintCan({ packageId, wallet: walletUser,  canId, hash});
+        const responseController = await controller.mintCan({ packageId, wallet: walletUser,  canId});
         response.success(req, res, responseController, 200);
     } catch (error) {
         response.error(req, res, error, 401);
