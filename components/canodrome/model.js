@@ -53,10 +53,6 @@ const Canodrome = new Schema({
         type: Number,
         default: 1,
         required: true
-    },
-    hash: {
-        type: String,
-        required: true
     }
 });
 
