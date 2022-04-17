@@ -62,7 +62,7 @@ const Cans = new Schema({
     },
     energy:{
         type: Number,
-        default: 2
+        default: 4
     }
 });
 

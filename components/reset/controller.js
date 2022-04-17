@@ -43,7 +43,7 @@ const resetEnergy = async (wallet) => {
 
                 //update cans all
                 const cans = await storeCans.cansUser(walletUser);
-                cans.forEach( async can => await storeCans.set( can.id, { energy: 2 } ));
+                cans.forEach( async can => await storeCans.set( can.id, { energy: 4 } ));
 
                 //update user date reset
                 await storeUser.set(walletUser, { reset: Date() });
