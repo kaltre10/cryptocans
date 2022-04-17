@@ -20,7 +20,7 @@ const Canodrome = new Schema({
     },
     energy: {
         type: Number,
-        default: 6
+        default: 12
     },
     type: {
         type: Number,

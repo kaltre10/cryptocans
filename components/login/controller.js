@@ -54,7 +54,7 @@ const login = wallet => {
                 wallet: newUser.wallet,
                 userId: newUser._id
             }
-            await addCanodrome(data);
+            // await addCanodrome(data); //no add canodrome
             await addClaim(wallet);
 
             //get cans

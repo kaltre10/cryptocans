@@ -12,10 +12,10 @@
  */
 //tipos de canodromos 
 const typeCanodrome = {
-    1: { amount: 3, energy: 6, url: "URL CANODROME COMMON" },  //tipo 1 (common) cans max 3
-    2: { amount: 6, energy: 12, url: "URL CANODROME RARE" },   //tipo 2 (rares) cans max 6
-    3: { amount: 9, energy: 18, url: "URL CANODROME EPIC" },   //tipo 3 (epic) cans max 9
-    4: { amount: 12, energy: 24, url: "URL CANODROME LEGENDARY" }    //tipo 4 (legendary) cans max 9
+    1: { amount: 3, energy: 12, url: "URL CANODROME COMMON" },  //tipo 1 (common) cans max 3
+    2: { amount: 6, energy: 24, url: "URL CANODROME RARE" },   //tipo 2 (rares) cans max 6
+    3: { amount: 9, energy: 36, url: "URL CANODROME EPIC" },   //tipo 3 (epic) cans max 9
+    4: { amount: 12, energy: 48, url: "URL CANODROME LEGENDARY" }    //tipo 4 (legendary) cans max 12
 }
 
 /**

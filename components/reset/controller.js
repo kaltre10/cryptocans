@@ -4,9 +4,10 @@ const storeCanodromes = require('../canodrome/store');
 
 //tipos de canodromos 
 const typeCanodrome = {
-    1: 6, //tipo 1 (common) energy max 6
-    2: 6, //tipo 2 (rares) energy max 9
-    3: 9, //tipo 3 (epic) energy max 12
+    1: 12, //tipo 1 (common) energy max 12
+    2: 24, //tipo 2 (rare) energy max 24 
+    3: 36, //tipo 3 (epic) energy max 36
+    4: 48, //tipo 4 (legendary) energy max 48
 }
 
 const resetEnergy = async (wallet) => {
