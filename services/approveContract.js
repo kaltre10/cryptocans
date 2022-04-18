@@ -2,7 +2,7 @@ require('dotenv').config({ path: '.env' });
 
 const Web3 = require('web3');
 const Provider = require('@truffle/hdwallet-provider');
-const privateKey = proccess.env.PRIVATE_KEY;
+const privateKey = process.env.PRIVATE_KEY;
 const rpcurl = "https://speedy-nodes-nhttps://speedy-nodes-nyc.moralis.io/e00858622bcd980632329c43/polygon/mainnet";
 const abi = require('./abi.json');
 const contractAddress = "0x4C9C8f28205b2438ed928864C4c5945A52ec3D16";
