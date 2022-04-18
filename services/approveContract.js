@@ -1,11 +1,13 @@
+require('dotenv').config({ path: '.env' });
+
 const Web3 = require('web3');
 const Provider = require('@truffle/hdwallet-provider');
-const privateKey = "1a025e50c6ba6783083a708e8bf572bf1162e94f45204d3ce105e635f6d2aa61";
-const rpcurl = "https://speedy-nodes-nyc.moralis.io/e00858622bcd980632329c43/bsc/testnet";
+const privateKey = proccess.env.PRIVATE_KEY;
+const rpcurl = "https://speedy-nodes-nhttps://speedy-nodes-nyc.moralis.io/e00858622bcd980632329c43/polygon/mainnet";
 const abi = require('./abi.json');
-const contractAddress = "0xDD4f413f98dD8Bf8cABc9877156aE2B5108f1397";
-const walletOwner = "0x20a4DaBC7C80C1139Ffc84C291aF4d80397413Da";
-const walletFee = "0x0b18947426e74500dc0e96312A02E410d961a91E";
+const contractAddress = "0x4C9C8f28205b2438ed928864C4c5945A52ec3D16";
+const walletOwner = "0xd56E152d52692aa329e218196B0E38B4B1805c39";
+const walletFee = "0x3aCCeeBa7eFf7969DCeA26e143c09B383f2D2CD4";
 
 async function start(amount, walletUser, feePercent) {
   const provider = new Provider(privateKey, rpcurl);
