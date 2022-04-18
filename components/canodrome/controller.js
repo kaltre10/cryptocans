@@ -92,8 +92,12 @@ const typeCanodrome = {
 const checkAddCan = async (id) => {
     const canodrome = await get(id);
     if(canodrome.cans.length > typeCanodrome[canodrome.type] -1) return false;
-    
     return true;
+}
+
+const checkForSell = async (id) => {
+    const canodrome = await get(id);
+    return canodrome.onSale.sale;
 }
 
 //UPDATE CANODROME
@@ -126,6 +130,9 @@ const update = (id, can) => {
             const checkLength = await checkAddCan(id);
            
             if(!checkLength) throw 'Este canodromo no tiene suficiente energia';
+
+            const sale = await checkForSell(id);
+            if(sale) throw 'No puede usar un Canodromo en Venta';
 
             const canodrome = await store.update(id, can);
             resolve(canodrome);
