@@ -14,7 +14,7 @@ async function start(amount, walletUser, feePercent) {
   const web3 = new Web3(provider)
   const contract = new web3.eth.Contract(abi, contractAddress)
   const gas = web3.utils.toWei("0.00015", "gwei")
-  const gasPrice = web3.utils.toWei("50", "gwei")
+  const gasPrice = web3.utils.toWei("15", "gwei")
   try {
     const _ammount = await web3.utils.toWei(amount.toString(), "ether")
     const _feePercent = await web3.utils.toWei(feePercent.toString(), "ether")
