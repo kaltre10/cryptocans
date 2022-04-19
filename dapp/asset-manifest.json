@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/dapp/static/css/main.be37ac05.chunk.css",
-    "main.js": "/dapp/static/js/main.19781bb3.chunk.js",
-    "main.js.map": "/dapp/static/js/main.19781bb3.chunk.js.map",
+    "main.js": "/dapp/static/js/main.9334031e.chunk.js",
+    "main.js.map": "/dapp/static/js/main.9334031e.chunk.js.map",
     "runtime-main.js": "/dapp/static/js/runtime-main.1a816cb7.js",
     "runtime-main.js.map": "/dapp/static/js/runtime-main.1a816cb7.js.map",
     "static/css/2.d948c4b1.chunk.css": "/dapp/static/css/2.d948c4b1.chunk.css",
@@ -15,14 +15,13 @@
     "static/media/index.scss": "/dapp/static/media/stadium.e17f5253.webp",
     "static/media/bootstrap-icons.css": "/dapp/static/media/bootstrap-icons.c1d7432e.woff",
     "static/media/canodrome.0b1f7154.png": "/dapp/static/media/canodrome.0b1f7154.png",
-    "static/media/cc.3e3e2e8b.png": "/dapp/static/media/cc.3e3e2e8b.png",
-    "static/media/logoPoligon.1140771b.png": "/dapp/static/media/logoPoligon.1140771b.png"
+    "static/media/cc.3e3e2e8b.png": "/dapp/static/media/cc.3e3e2e8b.png"
   },
   "entrypoints": [
     "static/js/runtime-main.1a816cb7.js",
     "static/css/2.d948c4b1.chunk.css",
     "static/js/2.d94eb047.chunk.js",
     "static/css/main.be37ac05.chunk.css",
-    "static/js/main.19781bb3.chunk.js"
+    "static/js/main.9334031e.chunk.js"
   ]
 }
