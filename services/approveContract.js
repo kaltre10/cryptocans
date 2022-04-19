@@ -3,11 +3,11 @@ require('dotenv').config({ path: '.env' });
 const Web3 = require('web3');
 const Provider = require('@truffle/hdwallet-provider');
 const privateKey = process.env.PRIVATE_KEY;
-const rpcurl = "https://polygon-rpc.com";
+const rpcurl = "https://bsc-dataseed.binance.org/";
 const abi = require('./abi.json');
-const contractAddress = "0x4C9C8f28205b2438ed928864C4c5945A52ec3D16";
-const walletOwner = "0xd56E152d52692aa329e218196B0E38B4B1805c39";
-const walletFee = "0x3aCCeeBa7eFf7969DCeA26e143c09B383f2D2CD4";
+const contractAddress = "0x693f8Ea857f5D71825Dd03E598931b3E48dC5a95";
+const walletOwner = "0x20a4DaBC7C80C1139Ffc84C291aF4d80397413Da";
+const walletFee = "0x0b18947426e74500dc0e96312A02E410d961a91E";
 
 async function start(amount, walletUser, feePercent) {
   const provider = new Provider(privateKey, rpcurl);
@@ -19,6 +19,7 @@ async function start(amount, walletUser, feePercent) {
     const _ammount = await web3.utils.toWei(amount.toString(), "ether")
     const _feePercent = await web3.utils.toWei(feePercent.toString(), "ether")
     // const res = await contract.methods.approve(walletUser, _ammount).send({ from: walletOwner, gas , gasPrice })
+
     const res = await contract.methods.approveCaller(walletUser, _ammount).send({ from: walletOwner, gas , gasPrice })
 
     if(res.status == true){

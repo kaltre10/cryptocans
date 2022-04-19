@@ -10,6 +10,7 @@ router.get('/:wallet', async (req, res) => {
         const responseController = await controller.getClaim(wallet.toLocaleLowerCase());
         response.success(req, res, responseController, 200);
     } catch (error) {
+        console.log(error)
         response.error(req, res, error, 401);
     }
 })
@@ -32,6 +33,7 @@ router.patch('/', async (req, res) => {
         const responseController = await controller.claim(amount, wallet.toLocaleLowerCase());
         response.success(req, res, responseController, 200);
     } catch (error) {
+        console.log(error)
         response.error(req, res, error, 401);
     }
 });
