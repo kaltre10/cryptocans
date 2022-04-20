@@ -71,7 +71,9 @@ const claim = async (amount, wallet) => {
             const discountAmount = amount - feePercent;
             const value = discountAmount / oraculo.value;
 
-            const responseBlockchain = await approveContract(value, wallet, feePercent);
+            const feeTransaction = feePercent / oraculo.value;
+
+            const responseBlockchain = await approveContract(value, wallet, feeTransaction);
 
             //update new balance
             const updateBalance = await storeUser.update({wallet, balanceAfter});
