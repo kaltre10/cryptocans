@@ -6,6 +6,7 @@ const app = express();
 const http = require('http');
 const serve = http.createServer(app);
 const cors = require('cors');
+const morgan = require('morgan');
 
 const socket = require('./socket');
 socket.connect(serve);
@@ -16,6 +17,8 @@ app.use(express.json());
 const routerApi = require('./network/routerApi');
 
 app.use(express.static(__dirname + '/'));
+
+app.use(morgan('tiny'));
 
 connect();
 
