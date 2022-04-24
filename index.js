@@ -18,7 +18,7 @@ const routerApi = require('./network/routerApi');
 
 app.use(express.static(__dirname + '/'));
 
-app.use(morgan('tiny'));
+// app.use(morgan('tiny'));
 
 connect();
 
