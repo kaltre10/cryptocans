@@ -51,6 +51,9 @@ const calClaim = async (wallet) => {
 const claim = async (amount, wallet) => {
     return new Promise( async (resolve, reject) => {
         try {
+
+            amount = Math.round(amount);
+
             //check user balance
             const user = await storeUser.get(wallet);
             if(amount <= 0) throw "La cantidad no puede ser menor o igual a 0";
