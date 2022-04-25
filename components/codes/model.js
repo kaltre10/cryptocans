@@ -2,12 +2,31 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const Codes = new Schema({
-    codes: {
-        type: Array,
+    a: {
+        type: String,
     },
-    current: {
-        type: Array
-    }
+    b: {
+        type: String,
+    },
+    c: {
+        type: String,
+    },
+    d: {
+        type: String,
+    },
+    aa: {
+        type: Number,
+    },
+    bb: {
+        type: Number,
+    },
+    cc: {
+        type: Number,
+    },
+    dd: {
+        type: Number,
+    },
+
 });
 
 module.exports = mongoose.model('codes', Codes);
