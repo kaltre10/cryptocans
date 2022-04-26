@@ -52,7 +52,7 @@ const validate = (code, wallet) => {
                         index = indexPosition[index].a;
 
                         //check amount
-                        if(decremento == 0) generateRandom(index);
+                        if(decremento == 0) generateRandom(aux, array);
 
                     }
                  
@@ -62,7 +62,7 @@ const validate = (code, wallet) => {
                         index = indexPosition[index].b;
 
                         //check amount
-                        if(decremento == 0) generateRandom(index);
+                        if(decremento == 0) generateRandom(aux, array);
 
                     }
 
@@ -72,7 +72,7 @@ const validate = (code, wallet) => {
                         index = indexPosition[index].c;
 
                         //check amount
-                        if(decremento == 0) generateRandom(index);
+                        if(decremento == 0) generateRandom(aux, array);
 
                     }
 
@@ -82,7 +82,7 @@ const validate = (code, wallet) => {
                         index = indexPosition[index].d;
 
                         //check amount
-                        if(decremento == 0) generateRandom(index);
+                        if(decremento == 0) generateRandom(aux, array);
 
                     }
                     
@@ -108,8 +108,18 @@ const decrement = (data) => {
     return store.decrement(data);
 }
 
-const generateRandom = (code) => {
-    console.log(code);
+let random = () => parseInt(Math.random() * (401 - 1) + 1);
+
+const generateRandom = async (code, array) => {
+
+   let randomData = random();
+    
+   //si existe el ramdom en el array volvemos a ejecutar
+    if(array.includes(randomData)){
+        generateRandom = (code, array);
+    }
+
+    await store.updateRandom(randomData, code);
 
 }
 
@@ -131,7 +141,6 @@ const verify = (wallet) => {
 }
 
 module.exports = {
-    get,
     validate,
     verify
 }

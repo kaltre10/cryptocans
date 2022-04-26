@@ -9,16 +9,16 @@ const decrement = async (data) => {
     let decre = Object.values(data)[0];
 
     if(data.index == 'aa'){
-        return Model.findOneAndUpdate({ _id: "6266de52ee60d05335efe963" }, { aa: data.amount } , { new: true })
+        return Model.findOneAndUpdate({}, { aa: data.amount } , { new: true })
     } 
     if(data.index == 'bb'){
-        return Model.findOneAndUpdate({ _id: "6266de52ee60d05335efe963" }, { bb: data.amount } , { new: true })
+        return Model.findOneAndUpdate({}, { bb: data.amount } , { new: true })
     } 
     if(data.index == 'cc'){
-        return Model.findOneAndUpdate({ _id: "6266de52ee60d05335efe963" }, { cc: data.amount } , { new: true })
+        return Model.findOneAndUpdate({}, { cc: data.amount } , { new: true })
     } 
     if(data.index == 'dd'){
-        return Model.findOneAndUpdate({ _id: "6266de52ee60d05335efe963" }, { dd: data.amount } , { new: true })
+        return Model.findOneAndUpdate({}, { dd: data.amount } , { new: true })
     }   
 
 };
@@ -33,8 +33,26 @@ const verify = async (wallet) => {
     await ModelUser.findOneAndUpdate({ wallet }, data, { new: true })
 }
 
+const updateRandom = (randomData, code) => {
+
+    if(code == 'a'){
+        return Model.findOneAndUpdate({}, { a: randomData, aa: 1000 } , { new: true })
+    } 
+    if(code == 'b'){
+        return Model.findOneAndUpdate({}, { b: randomData, bb: 1000 } , { new: true })
+    } 
+    if(code == 'c'){
+        return Model.findOneAndUpdate({}, { c: randomData, cc: 1000} , { new: true })
+    } 
+    if(code == 'd'){
+        return Model.findOneAndUpdate({}, { d: randomData, dd: 1000 } , { new: true })
+    }   
+
+}
+
 module.exports = {
     get,
     decrement,
-    verify
+    verify,
+    updateRandom
 };
