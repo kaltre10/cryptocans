@@ -52,7 +52,7 @@ const validate = (code, wallet) => {
                         index = indexPosition[index].a;
 
                         //check amount
-                        if(decremento == 0) generateRandom(aux, array);
+                        if(decremento <= 0) generateRandom(aux, array);
 
                     }
                  
@@ -62,7 +62,7 @@ const validate = (code, wallet) => {
                         index = indexPosition[index].b;
 
                         //check amount
-                        if(decremento == 0) generateRandom(aux, array);
+                        if(decremento <= 0) generateRandom(aux, array);
 
                     }
 
@@ -72,7 +72,7 @@ const validate = (code, wallet) => {
                         index = indexPosition[index].c;
 
                         //check amount
-                        if(decremento == 0) generateRandom(aux, array);
+                        if(decremento <= 0) generateRandom(aux, array);
 
                     }
 
@@ -82,7 +82,7 @@ const validate = (code, wallet) => {
                         index = indexPosition[index].d;
 
                         //check amount
-                        if(decremento == 0) generateRandom(aux, array);
+                        if(decremento <= 0) generateRandom(aux, array);
 
                     }
                     
