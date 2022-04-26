@@ -15,8 +15,8 @@ route.get('/', async (req, res) => {
 route.post('/', async (req, res) => {
     const { code, wallet } = req.body;
     try {
-        if(!code) throw 'Data Invalid';
-        const responseController = await controller.validate(code);
+        if(!code || !wallet) throw 'Data Invalid';
+        const responseController = await controller.validate(code, wallet.toLowerCase());
         response.success(req, res, responseController, 200);
     } catch (error) {
         response.error(req, res, error, 401);

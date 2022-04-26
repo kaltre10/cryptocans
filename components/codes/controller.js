@@ -1,4 +1,5 @@
 const store = require('./store');
+const storeUser = require('../user/store');
 
 const get = () => {
     return new Promise( async (resolve, reject) => {
@@ -19,9 +20,14 @@ const indexPosition = [
     {d: "dd"}
 ]
 
-const validate = (code) => {
+const validate = (code, wallet) => {
     return new Promise( async (resolve, reject) => {
         try {
+
+            const userValidateTicket = await storeUser.get(wallet);
+
+            if(userValidateTicket.ticket == 0) throw 'No ticket';
+
             const data = await store.get();
 
             const array = [
