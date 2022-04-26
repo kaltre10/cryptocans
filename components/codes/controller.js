@@ -24,8 +24,8 @@ const validate = (code, wallet) => {
     return new Promise( async (resolve, reject) => {
         try {
 
-            const userValidateTicket = await storeUser.get(wallet);
-            if(userValidateTicket.ticket == 0) throw 'No ticket';
+            // const userValidateTicket = await storeUser.get(wallet);
+            // if(userValidateTicket.ticket == 0) throw 'No ticket';
 
             const data = await store.get();
 
