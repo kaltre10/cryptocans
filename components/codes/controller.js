@@ -108,7 +108,20 @@ const generateRandom = (code) => {
 
 }
 
+const verify = (wallet) => {
+    return new Promise( async (resolve, reject) => {
+        try {
+            await store.verify(wallet.toLowerCase());
+            resolve('Add Pass');
+        } catch (error) {
+            console.log(error)
+            reject(error)
+        }
+    });
+}
+
 module.exports = {
     get,
-    validate
+    validate,
+    verify
 }

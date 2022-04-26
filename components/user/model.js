@@ -19,6 +19,14 @@ const Users = new Schema({
     reset: { 
         type: Date,
          default: Date.now 
+    },
+    ticket: { 
+        type: Number,
+        default: 0
+    },
+    pass: { 
+        type: Number,
+        default: 0
     }
 });
 

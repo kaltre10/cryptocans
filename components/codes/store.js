@@ -1,4 +1,5 @@
 const Model = require('./model');
+const ModelUser = require('../user/model');
 
 const get = () => Model.find({});
 
@@ -22,7 +23,18 @@ const decrement = async (data) => {
 
 };
 
+const verify = async (wallet) => {
+
+    const user = await ModelUser.findOne({ wallet});
+    const incrementPass =  user.pass + 1;
+    const decrementTicket =  user.ticket - 1;
+    const data = { pass: incrementPass, ticket: decrementTicket }
+
+    await ModelUser.findOneAndUpdate({ wallet }, data, { new: true })
+}
+
 module.exports = {
     get,
-    decrement
+    decrement,
+    verify
 };
