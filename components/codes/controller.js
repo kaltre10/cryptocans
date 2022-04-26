@@ -25,7 +25,6 @@ const validate = (code, wallet) => {
         try {
 
             const userValidateTicket = await storeUser.get(wallet);
-
             if(userValidateTicket.ticket == 0) throw 'No ticket';
 
             const data = await store.get();
@@ -117,6 +116,11 @@ const generateRandom = (code) => {
 const verify = (wallet) => {
     return new Promise( async (resolve, reject) => {
         try {
+
+            //validate ticket
+            const userValidateTicket = await storeUser.get(wallet);
+            if(userValidateTicket.ticket == 0) throw 'No ticket';
+
             await store.verify(wallet.toLowerCase());
             resolve('Add Pass');
         } catch (error) {
