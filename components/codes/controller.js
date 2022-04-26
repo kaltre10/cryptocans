@@ -36,11 +36,13 @@ const validate = (code) => {
             let decremento;
             let index;
             let indice;
+            let aux;
             array.map( async (value, index) => {
                 indice = Object.keys(indexPosition[index])[0];
                 if(code == value) {
                     result = true;
                     if( indice == 'a'){
+                        aux = 'a';
                         decremento = data[0].aa - 1;
                         index = indexPosition[index].a;
 
@@ -50,6 +52,7 @@ const validate = (code) => {
                     }
                  
                     if(indice == 'b'){
+                        aux = 'b';
                         decremento = data[0].bb - 1;
                         index = indexPosition[index].b;
 
@@ -59,6 +62,7 @@ const validate = (code) => {
                     }
 
                     if(indice == 'c'){
+                        aux = 'c';
                         decremento = data[0].cc - 1;
                         index = indexPosition[index].c;
 
@@ -68,6 +72,7 @@ const validate = (code) => {
                     }
 
                     if(indice == 'd'){
+                        aux = 'd';
                         decremento = data[0].dd - 1;
                         index = indexPosition[index].d;
 
@@ -83,7 +88,10 @@ const validate = (code) => {
                 }
             })
     
-            resolve(result);
+            resolve({
+                result,
+                key: aux
+            });
         } catch (error) {
             console.log(error)
             reject(error)
@@ -97,7 +105,7 @@ const decrement = (data) => {
 
 const generateRandom = (code) => {
     console.log(code);
-    
+
 }
 
 module.exports = {
