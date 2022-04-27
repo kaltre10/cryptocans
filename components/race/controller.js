@@ -46,7 +46,10 @@ const clickPlay = async (wallet, canId, canodromeId) => {
 
             if(can.wallet !== userWallet.wallet) throw "No tiene permisos para esta acción";
 
-            resolve(playRun(can, userWallet.balance, canodrome))
+            //check pass
+            if(userWallet.pass == 0) throw "No tiene pase para la carrera por favor consiga pases en los minijuegos!!";
+
+            resolve(playRun(can, userWallet.balance, canodrome, userWallet.pass))
 
         } catch (error) {
             reject(error);
@@ -57,7 +60,7 @@ const clickPlay = async (wallet, canId, canodromeId) => {
 const getCan = id => storeCans.get(id);
 const getUser = wallet => storeUser.get(wallet);
 
-const playRun = async (can, balance, canodrome) => {
+const playRun = async (can, balance, canodrome, passAmount) => {
 
     const numRandom = () => random(1, 7);
 
@@ -67,7 +70,7 @@ const playRun = async (can, balance, canodrome) => {
         (!cansResult.includes(random)) ? cansResult[i] = random : i--
     }
 
-    let career = await careerSave(cansResult.indexOf(1) + 1, can, balance, canodrome);
+    let career = await careerSave(cansResult.indexOf(1) + 1, can, balance, canodrome, passAmount);
     
     return {
         places: cansResult,
@@ -75,7 +78,7 @@ const playRun = async (can, balance, canodrome) => {
     };
 }
 
-const careerSave = async (place, can, balance, canodrome) => {
+const careerSave = async (place, can, balance, canodrome, passAmount) => {
 
     let gainToken = type[can.rarity][place] || 0;
     let balanceAfter = balance + gainToken || balance ;
@@ -94,6 +97,10 @@ const careerSave = async (place, can, balance, canodrome) => {
 
     //update user (balance)
     await storeUser.update(career);
+
+    //decrement pass 
+    const amount = passAmount - 1;
+    await storeUser.set(can.wallet, { pass: amount });
 
     //update can (-1 de energia)
     await storeCans.set(can.id, { energy: can.energy -1 });
