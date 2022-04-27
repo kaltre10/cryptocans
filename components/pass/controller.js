@@ -2,6 +2,22 @@ const store = require('./store');
 const storeUser = require('../user/store');
 const socket = require('../../socket').socket;
 
+const get = () => {
+    return new Promise( async (resolve, reject) => {
+        try {
+           
+            //websocket
+            getPass = await store.getAll();
+            socket.io.emit('passData', getPass);   
+            
+            resolve(getPass);
+        } catch (error) {
+            console.log(error)
+            reject(error)
+        }
+    });
+}
+
 const sell = (amount, price, wallet) => {
     return new Promise( async (resolve, reject) => {
         try {
@@ -105,5 +121,6 @@ const cancel = (passId, wallet) => {
 module.exports = {
     sell,
     buy,
-    cancel
+    cancel,
+    get
 }
