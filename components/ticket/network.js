@@ -7,7 +7,7 @@ route.post('/', async (req, res) => {
     const { amount, wallet } = req.body;
     try {
         if(!amount || !wallet) throw 'Data Invalid';
-        const responseController = await controller.add(amount, wallet.toLowerCase());
+        const responseController = await controller.add(parseInt(amount), wallet.toLowerCase());
         response.success(req, res, responseController, 200);
     } catch (error) {
         response.error(req, res, error, 401);
