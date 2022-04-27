@@ -36,16 +36,16 @@ const verify = async (wallet) => {
 const updateRandom = (randomData, code) => {
 
     if(code == 'a'){
-        return Model.findOneAndUpdate({}, { a: randomData, "aa": 1000 } , { new: true })
+        return Model.findOneAndUpdate({}, { a: randomData, aa: 1000 } , { new: true })
     } 
     if(code == 'b'){
-        return Model.findOneAndUpdate({}, { b: randomData, "bb": 1000 } , { new: true })
+        return Model.findOneAndUpdate({}, { b: randomData, bb: 1000 } , { new: true })
     }
     if(code == 'c'){
-        return Model.findOneAndUpdate({}, { c: randomData, "cc": 1000} , { new: true })
+        return Model.findOneAndUpdate({}, { c: randomData, cc: 1000} , { new: true })
     } 
     if(code == 'd'){
-        return Model.findOneAndUpdate({}, { d: randomData, "dd": 1000 } , { new: true })
+        return Model.findOneAndUpdate({}, { d: randomData, dd: 1000 } , { new: true })
     }   
 
 }
