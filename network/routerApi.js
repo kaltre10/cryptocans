@@ -10,6 +10,7 @@ const claim = require('../components/claim/network');
 const reset = require('../components/reset/network');
 const oraculo = require('../components/oraculo/network');
 const codes = require('../components/codes/network');
+const ticket = require('../components/ticket/network');
 const cors = require('cors');
 
 const routerApi = app => {
@@ -27,6 +28,7 @@ const routerApi = app => {
         router.use('/reset', reset);
         router.use('/oraculo', oraculo);
         router.use('/codes', codes);
+        router.use('/ticket', ticket);
 }
 
 module.exports = routerApi;
