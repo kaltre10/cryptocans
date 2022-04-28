@@ -34,8 +34,8 @@ route.post('/buy', async (req, res) => {
     }
 });
 
-route.delete('/', async (req, res) => {
-    const { passId, wallet } = req.body;
+route.delete('/:wallet/:passId', async (req, res) => {
+    const { passId, wallet } = req.params;
     try {
         if(!passId || !wallet) throw 'Data Invalid';
         const responseController = await controller.cancel(passId, wallet.toLowerCase());
