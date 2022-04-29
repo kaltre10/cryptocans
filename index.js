@@ -22,7 +22,7 @@ socket.connect(serve);
 //     }
 // }
 
-app.use();
+app.use(cors());
 app.use(express.json());
 
 const routerApi = require('./network/routerApi');
