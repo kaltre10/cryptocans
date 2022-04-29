@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 const http = require('http');
 const serve = http.createServer(app);
-// const cors = require('cors');
+const cors = require('cors');
 // const morgan = require('morgan');
 
 const socket = require('./socket');
@@ -22,7 +22,7 @@ socket.connect(serve);
 //     }
 // }
 
-// app.use(cors(corsOptions));
+app.use();
 app.use(express.json());
 
 const routerApi = require('./network/routerApi');
