@@ -5,18 +5,18 @@ const path = require('path');
 const app = express();
 const http = require('http');
 const serve = http.createServer(app);
-const cors = require('cors');
+// const cors = require('cors');
 // const helmet = require("helmet");
 // const morgan = require('morgan');
 
 // app.use(helmet());
 
-var corsOptions = {
-    origin: 'https://cryptocans.io',
-    optionsSuccessStatus: 200, // For legacy browser support
-}
+// var corsOptions = {
+//     origin: 'https://cryptocans.io',
+//     optionsSuccessStatus: 200, // For legacy browser support
+// }
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 const socket = require('./socket');
 socket.connect(serve);
@@ -33,18 +33,18 @@ app.use(express.static(__dirname + '/'));
 
 connect();
 
-app.use((req, res, next) => {
+// app.use((req, res, next) => {
     // console.log(req.rawHeaders)
     // console.log(req.body) 
     // console.log(req.hostname) 
     // console.log(req.secure) 
     // console.log(req.protocol) 
     // console.log(req.ip) 
-    if(req.hostname != "cryptocans.io") throw 'No autorizado';
-    if(req.protocol!= "https") throw 'No autorizado';
-    if(req.secure == false) throw 'No autorizado';
-    next()
-})
+//     if(req.hostname != "cryptocans.io") throw 'No autorizado';
+//     if(req.protocol!= "https") throw 'No autorizado';
+//     if(req.secure == false) throw 'No autorizado';
+//     next()
+// })
 
 routerApi(app);
     
