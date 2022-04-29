@@ -6,24 +6,34 @@ const app = express();
 const http = require('http');
 const serve = http.createServer(app);
 const cors = require('cors');
+const helmet = require("helmet");
 // const morgan = require('morgan');
+
+app.use(helmet());
+
+var corsOptions = {
+    origin: 'https://cryptocans.io',
+    optionsSuccessStatus: 200, // For legacy browser support
+}
+
+app.use((req, res, next) => {
+    // console.log(req.rawHeaders)
+    console.log(req.body) 
+    console.log(req.hostname) 
+    console.log(req.secure) 
+    console.log(req.protocol) 
+    console.log(req.ip) 
+    next()
+})
+
+app.use(cors(corsOptions));
 
 const socket = require('./socket');
 socket.connect(serve);
 
-// const  whitelist = ['https://cryptocans.io'];
-// const corsOptions = {
-//     origin: function (origin, callback) {
-//       if (whitelist.indexOf(origin) !== -1) {
-//         callback(null, true)
-//       } else {
-//         callback(new Error('Not allowed by CORS'))
-//       }
-//     }
-// }
 
-app.use(cors());
 app.use(express.json());
+
 
 const routerApi = require('./network/routerApi');
 
