@@ -16,8 +16,8 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 app.use((req, res, next) => {
-    console.log(req.rawHeaders)
-    console.log(req.body) 
+    // console.log(req.rawHeaders)
+    // console.log(req.body) 
     console.log(req.hostname) 
     console.log(req.secure) 
     console.log(req.protocol) 
