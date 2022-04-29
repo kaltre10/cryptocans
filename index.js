@@ -16,15 +16,15 @@ var corsOptions = {
     optionsSuccessStatus: 200, // For legacy browser support
 }
 
-app.use((req, res, next) => {
-    // console.log(req.rawHeaders)
-    console.log(req.body) 
-    console.log(req.hostname) 
-    console.log(req.secure) 
-    console.log(req.protocol) 
-    console.log(req.ip) 
-    next()
-})
+// app.use((req, res, next) => {
+//     // console.log(req.rawHeaders)
+//     console.log(req.body) 
+//     console.log(req.hostname) 
+//     console.log(req.secure) 
+//     console.log(req.protocol) 
+//     console.log(req.ip) 
+//     next()
+// })
 
 app.use(cors(corsOptions));
 
