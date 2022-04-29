@@ -8,10 +8,16 @@ const serve = http.createServer(app);
 const cors = require('cors');
 // const morgan = require('morgan');
 
+var corsOptions = {
+    origin: 'https://cryptocans.io',
+    optionsSuccessStatus: 200, // For legacy browser support
+}
+
+app.use(cors(corsOptions));
+
 const socket = require('./socket');
 socket.connect(serve);
 
-app.use(cors());
 app.use(express.json());
 
 const routerApi = require('./network/routerApi');
