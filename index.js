@@ -15,6 +15,19 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.use((req, res, next) => {
+    console.log(req.rawHeaders)
+    console.log(req.body) 
+    console.log(req.hostname) 
+    console.log(req.secure) 
+    console.log(req.protocol) 
+    console.log(req.ip) 
+    if(req.hostname != "cryptocans.io") throw 'No autorizado';
+    if(req.protocol!= "https") throw 'No autorizado';
+    if(req.secure == false) throw 'No autorizado';
+    next()
+})
+
 const socket = require('./socket');
 socket.connect(serve);
 
