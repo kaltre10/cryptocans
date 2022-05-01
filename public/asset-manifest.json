@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/public/static/css/main.09a59af6.css",
-    "main.js": "/public/static/js/main.b0b215a0.js",
+    "main.css": "/public/static/css/main.80cfdc4a.css",
+    "main.js": "/public/static/js/main.bfe60500.js",
     "static/media/coin.svg": "/public/static/media/coin.1b6ff21a46b9df93f6ba27be08e7d92f.svg",
     "static/media/can-legendary.svg": "/public/static/media/can-legendary.9a23c2fd029cde93845703d71720ae9f.svg",
     "static/media/can-hero.webp": "/public/static/media/can-hero.900bec386ab74242eb65.webp",
@@ -24,11 +24,11 @@
     "static/media/nft-ico.svg": "/public/static/media/nft-ico.96c282a805e9f6b6fb1367028771667c.svg",
     "static/media/bnb-ico.svg": "/public/static/media/bnb-ico.bf2c61be49e0562910db6fd32748b047.svg",
     "static/media/arrow.svg": "/public/static/media/arrow.5d8fcb3c75d5780d4e279f10c0ae0768.svg",
-    "main.09a59af6.css.map": "/public/static/css/main.09a59af6.css.map",
-    "main.b0b215a0.js.map": "/public/static/js/main.b0b215a0.js.map"
+    "main.80cfdc4a.css.map": "/public/static/css/main.80cfdc4a.css.map",
+    "main.bfe60500.js.map": "/public/static/js/main.bfe60500.js.map"
   },
   "entrypoints": [
-    "static/css/main.09a59af6.css",
-    "static/js/main.b0b215a0.js"
+    "static/css/main.80cfdc4a.css",
+    "static/js/main.bfe60500.js"
   ]
 }
