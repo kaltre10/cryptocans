@@ -4,7 +4,6 @@ const storeCanodrome = require('../canodrome/store');
 const storeClaim = require('../claim/store');
 const storageOraculo = require('../oraculo/store');
 const controllerReset = require('../reset/controller');
-const auth = require('../../services/auth');
 
 const login = wallet => {
     return new Promise( async (resolve, reject) => {
@@ -35,9 +34,6 @@ const login = wallet => {
                 const reset = new Date(getWallet.reset);
                 dayReset = `${reset.getDate() + 1 }/${reset.getMonth() + 1 }/${reset.getFullYear()} | ${reset.getHours()}:${reset.getMinutes()}`;
 
-                //generate token
-                const token = await auth.sign(getWallet.wallet);
-
                 resolve({
                     getWallet,
                     cansUser,
@@ -47,8 +43,7 @@ const login = wallet => {
                         value: oracule.value,
                         min: oracule.min
                     },
-                    dayReset,
-                    token
+                    dayReset
                 }); 
                 return;
             }

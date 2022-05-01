@@ -12,8 +12,6 @@ const oraculo = require('../components/oraculo/network');
 const codes = require('../components/codes/network');
 const ticket = require('../components/ticket/network');
 const pass = require('../components/pass/network');
-const securex = require('../services/securex');
-
 const cors = require('cors');
 
 const routerApi = app => {
@@ -22,11 +20,11 @@ const routerApi = app => {
     app.use('/api/v1', router);
 
         router.use('/login', login);
-        router.use('/cans', securex('validate'), cans);
+        router.use('/cans', cans);
         router.use('/race', race);
         router.use('/marketplace', market);
         router.use('/activities', activities);
-        router.use('/canodrome', securex('logged'), canodrome);
+        router.use('/canodrome', canodrome);
         router.use('/claim', claim);
         router.use('/reset', reset);
         router.use('/oraculo', oraculo);

@@ -2,16 +2,14 @@ const express = require('express');
 const router = express.Router();
 const response = require('../../network/response');
 const controller = require('./controller');
-const check = require('./securex');
 
 //GET CANODROMES 
-router.get('/', check('validate'), async (req, res) => {
+router.get('/', async (req, res) => {
     const id = req.query.id;
     const wallet = req.query.wallet;
-    
     let responseController;
     if(wallet){
-            responseController = await controller.getAll(wallet);
+        responseController = await controller.getAll(wallet);
     }else{
         if(id){
             responseController = await controller.get(id);
@@ -27,7 +25,7 @@ router.get('/', check('validate'), async (req, res) => {
 
 
 //ADD CANODROME
-router.post('/', check('validatePost'), async (req, res) => {
+router.post('/', async (req, res) => {
     const { wallet, type } = req.body;
     try {
         if(!wallet) throw "Datos Invalidos!!";
@@ -39,7 +37,7 @@ router.post('/', check('validatePost'), async (req, res) => {
 });
 
 //MINT CANODROME
-router.post('/mint', check('validatePost'), async (req, res) => {
+router.post('/mint', async (req, res) => {
     const { wallet, packageId, canodromeId, hash } = req.body;
     try {
         if(!wallet || !packageId) throw "Datos Invalidos!!";
@@ -52,7 +50,7 @@ router.post('/mint', check('validatePost'), async (req, res) => {
 
 
 //UPDATE CANODROME
-router.patch('/:id', check('validatePath'), async (req, res) => {
+router.patch('/:id', async (req, res) => {
     const { id } = req.params;
     const can = req.body;
     try {
@@ -65,7 +63,7 @@ router.patch('/:id', check('validatePath'), async (req, res) => {
 });
 
 //SELL CANODROME
-router.patch('/sell/:canodromeId', check('validateSell'), async (req, res) => {
+router.patch('/sell/:canodromeId', async (req, res) => {
     const { canodromeId } = req.params;
     const  {canodrome} = req.body;
     try {
