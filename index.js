@@ -13,7 +13,7 @@ var corsOptions = {
     optionsSuccessStatus: 200, // For legacy browser support
 }
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 const socket = require('./socket');
 socket.connect(serve);

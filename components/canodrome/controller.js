@@ -2,7 +2,6 @@ const store = require('./store');
 const storeUser = require('../user/store');
 const storeCan = require('../cans/store');
 const { mint } = require('../../services/nftCanodromes.js');
-const req = require('express/lib/request');
 const socket = require('../../socket').socket;
 
 //GET CANODROMES USER
@@ -149,12 +148,6 @@ const sellCanodrome = (canodromeId, canodrome) => {
         try {
             
             canodrome.cans = [];
-
-            //check
-            const canodromeCheck = await store.get(canodromeId);
-
-            if(canodromeCheck.wallet != canodrome.wallet.toLowerCase()) throw 'Not authorized';
-
             const newCanodrome = await store.setSellCanodrome(canodromeId, canodrome);
             
             //websocket
@@ -173,11 +166,6 @@ const sellCanodrome = (canodromeId, canodrome) => {
 const removeCanodrome = canodromeId => {
     return new Promise( async (resolve, reject) => {
         try {
-
-            //check
-            const canodromeCheck = await store.get(canodromeId);
-
-            if(canodromeCheck.wallet != req.user.wallet.toLowerCase()) throw 'Not authorized';
 
             const newCanodrome = await store.setRemoveCanodrome(canodromeId);
 
@@ -198,11 +186,6 @@ const setStatusCanodrome = (canodromeId, status) => {
     return new Promise( async (resolve, reject) => {
         try {
 
-            //check
-            const canodromeCheck = await store.get(canodromeId);
-
-            if(canodromeCheck.wallet != req.user.wallet.toLowerCase()) throw 'Not authorized';
-
             const newCanodrome = await store.setStatus(canodromeId, status);
 
             resolve(newCanodrome);
@@ -219,11 +202,7 @@ const deleteCan = (canodromeId, canId) => {
     return new Promise( async (resolve, reject) => {
         try {
           
-            //check
-            const canodrome = await get(canodromeId);
-
-            if(canodrome.wallet != req.user.wallet.toLowerCase()) throw 'Not authorized';
-            
+            const canodrome = await get(canodromeId); 
             const arrayCans = canodrome.cans.filter(can => can.can.id != canId)      
             const exe = await store.delete(canodromeId, arrayCans);
             resolve(exe);
