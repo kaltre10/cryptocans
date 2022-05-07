@@ -14,11 +14,11 @@ const {
   WALLET_FEE_TEST
 } = process.env;
 
-const privateKeyString = NODE_ENV === 'production' ? PRIVATE_KEY_TEST : PRIVATE_KEY;
-const nodoString = NODE_ENV === 'production' ? NODO_TEST : NODO;
-const contractAddressString = NODE_ENV === 'production' ? CONTRACT_ADDRESS_TEST : CONTRACT_ADDRESS;
-const walletOwnerString = NODE_ENV === 'production' ? WALLET_OWNER_TEST : WALLET_OWNER;
-const walletFeeString = NODE_ENV === 'production' ? WALLET_FEE_TEST : WALLET_FEE;
+const privateKeyString = NODE_ENV === 'development' ? PRIVATE_KEY_TEST : PRIVATE_KEY;
+const nodoString = NODE_ENV === 'development' ? NODO_TEST : NODO;
+const contractAddressString = NODE_ENV === 'development' ? CONTRACT_ADDRESS_TEST : CONTRACT_ADDRESS;
+const walletOwnerString = NODE_ENV === 'development' ? WALLET_OWNER_TEST : WALLET_OWNER;
+const walletFeeString = NODE_ENV === 'development' ? WALLET_FEE_TEST : WALLET_FEE;
 
 const Web3 = require('web3');
 const Provider = require('@truffle/hdwallet-provider');
