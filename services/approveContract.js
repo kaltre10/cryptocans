@@ -24,7 +24,7 @@ const Web3 = require('web3');
 const Provider = require('@truffle/hdwallet-provider');
 const privateKey = privateKeyString;
 const rpcurl = nodoString; 
-const abi = NODE_ENV === 'production' ? require('./abiTest.json') : require('./abi.json');
+const abi = NODE_ENV === 'development' ? require('./abiTest.json') : require('./abi.json');
 
 const contractAddress = contractAddressString;
 const walletOwner = walletOwnerString;

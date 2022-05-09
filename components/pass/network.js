@@ -8,6 +8,7 @@ route.get('/', async (req, res) => {
         const responseController = await controller.get();
         response.success(req, res, responseController, 200);
     } catch (error) {
+        console.log(error)
         response.error(req, res, error, 500);
     }
 });

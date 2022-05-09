@@ -10,6 +10,7 @@ router.post('/', async (req, res) => {
         const responseController = await controller.login(wallet.toLowerCase());
         response.success(req, res, responseController, 200);
     } catch (error) {
+        console.log(error)
         response.error(req, res, error, 401);
     }
 });

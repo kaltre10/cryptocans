@@ -11,6 +11,7 @@ router.get('/validate/:canId', async (req, res) => {
         const responseController = await controller.validateCan(canId);
         response.success(req, res, responseController, 200);
     } catch (error) {
+        console.log(error)
         response.error(req, res, error, 401);
     }
 });

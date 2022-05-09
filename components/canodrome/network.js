@@ -19,6 +19,7 @@ router.get('/', async (req, res) => {
     try {
         response.success(req, res, responseController, 200);
     } catch (error) {
+        console.log(error)
         response.error(req, res, error, 401);
     }
 });
