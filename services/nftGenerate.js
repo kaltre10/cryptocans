@@ -7,7 +7,7 @@
  */
 
 /**
- * Array del tipo de nft con los valores 
+ * Objeto del tipo de nft con los valores 
  *  para sus propiedades 
  */
 let types = {
@@ -96,7 +96,7 @@ const nftGenerate = (type, id, wallet) => {
     let resistencia = random(randomMin, randomMax);
 
     return { 
-        name: types[type].name, 
+        name: generateName(), 
         rarity: type,
         imgUrl: types[type].url,
         aerodinamica,
@@ -123,6 +123,76 @@ const mint = (id, wallet) => {
     const type = typePackage[id]();
     return nftGenerate(type, id, wallet);   
 }
+
+/**
+ * array para generar el nombre de los canes 53 nombres 52 posiciones
+ */
+ const canName = [
+    "Rex",
+    "Strike",
+    "Ciborg",
+    "Predator",
+    "Cyriak",
+    "Tentacul",
+    "Harmony",
+    "Lumux",
+    "Faiser",
+    "Lumus",
+    "Houmus",
+    "Soad",
+    "Jack",
+    "Persival",
+    "Icen",
+    "Cooler",
+    "Rocky",
+    "Vi",
+    "Astro",
+    "Conrat",
+    "Saico",
+    "Psicox",
+    "Red",
+    "Fenix",
+    "Sky",
+    "Chace",
+    "Patriot",
+    "Thanos",
+    "Rumiac",
+    "Stripes",
+    "Laikan",
+    "Speed",
+    "Machina",
+    "RedSun",
+    "Nova",
+    "Storm",
+    "Hachi",
+    "Rainbow",
+    "Sector",
+    "Smith",
+    "Bowser",
+    "Lacerr",
+    "Icarus",
+    "Ripsaw",
+    "Shadow",
+    "Spot",
+    "King",
+    "3-k40",
+    "C-3p0",
+    "Ig-3k",
+    "Green-420",
+    "X-AE-A12",
+    "Xavier"
+];
+
+/**
+ * @return {string}   
+ */
+const generateName = () => {
+    const number = random(0, 52);
+    const code = random(100, 999);
+    const name = `${canName[number]}-${code}`;
+    return name;
+}
+
 
 module.exports = { 
     mint,
