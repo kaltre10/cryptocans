@@ -34,11 +34,11 @@ const clickPlay = async (wallet, canId, canodromeId) => {
            
             //check can energies
             const can = await getCan(canId);
-            if(can.energy == 0)  throw "disculpe!! este can no dispone de energia";
+            if(can.energy == 0)  throw "Sorry!! this can has no power";
 
             //check canodrome energies
             const canodrome = await storeCanodrome.get(canodromeId);
-            if(canodrome.energy == 0)  throw "disculpe!! este canodromo no dispone de energia";
+            if(canodrome.energy == 0)  throw "Sorry!! this canodrome does not have energy";
 
             const userWallet = await getUser(wallet);
             if(!can) throw "disculpe!! no existe el can";
@@ -47,7 +47,7 @@ const clickPlay = async (wallet, canId, canodromeId) => {
             if(can.wallet !== userWallet.wallet) throw "No tiene permisos para esta acción";
 
             //check pass
-            if(userWallet.pass == 0) throw "No tiene pase para la carrera por favor consiga pases en los minijuegos!!";
+            if(userWallet.pass == 0) throw "You don't have a pass for the race please get passes in the minigames!!";
 
             resolve(playRun(can, userWallet.balance, canodrome, userWallet.pass))
 
