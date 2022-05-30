@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/public/static/css/main.23ff9cc9.css",
+    "main.js": "/public/static/js/main.4ebc7608.js",
+    "static/media/legendary-nft1.png": "/public/static/media/legendary-nft1.774651bdda256d56c274.png",
+    "static/media/header-canodrome.png": "/public/static/media/header-canodrome.ee8c4eb5b63edf06ae4d.png",
+    "static/media/humo.png": "/public/static/media/humo.7d99f115b0f2d18e0e25.png",
+    "static/media/epic-nft.png": "/public/static/media/epic-nft.62cc834dd5d0f98f8640.png",
+    "static/media/rare-nft1.png": "/public/static/media/rare-nft1.20887e60cf2205323779.png",
+    "static/media/common-nft.png": "/public/static/media/common-nft.50dd885d760dca0d0cd0.png",
+    "static/media/header3.png": "/public/static/media/header3.18512e062d3d2925c1df.png",
+    "static/media/bg7.png": "/public/static/media/bg7.d3c9f653e6b37c0e985f.png",
+    "static/media/canodrome.png": "/public/static/media/canodrome.aa8d634863e0bc410159.png",
+    "static/media/back.svg": "/public/static/media/back.f87a6ae4e2dd40cdfe697a89111b1aaa.svg",
+    "static/media/front.svg": "/public/static/media/front.d43f506373d7378621e7a3aed11ff7a8.svg",
+    "static/media/ceo.svg": "/public/static/media/ceo.f2b37ba3301d3494a6c3d134288f60be.svg",
+    "static/media/design.svg": "/public/static/media/design.2ae70f4f6d793088aed3e8c526c775e9.svg",
+    "static/media/chart2.png": "/public/static/media/chart2.53b93533bbfdfc510053.png",
+    "static/media/crypto-only.png": "/public/static/media/crypto-only.66ffe23d0ad72e6347eb.png",
+    "static/media/crypto-text.png": "/public/static/media/crypto-text.f119ac1c225158099fbf.png",
+    "static/media/metamask.svg": "/public/static/media/metamask.56461f8696b1cc56a0d59bd53bb5235e.svg",
+    "static/media/discord.svg": "/public/static/media/discord.8687853eb6e05adc24757c90ed39d13b.svg",
+    "index.html": "/public/index.html",
+    "static/media/telegram.svg": "/public/static/media/telegram.ca1515e955a00d8a55d1f4ec2b035e03.svg",
+    "static/media/twitter.svg": "/public/static/media/twitter.03df2e821dedfe602bf0d618870b9633.svg",
+    "static/media/youtube.svg": "/public/static/media/youtube.68637a7f43aef86f14178ed908cfc954.svg",
+    "static/media/nft-ico.svg": "/public/static/media/nft-ico.96c282a805e9f6b6fb1367028771667c.svg",
+    "static/media/bnb-ico.svg": "/public/static/media/bnb-ico.bf2c61be49e0562910db6fd32748b047.svg",
+    "main.23ff9cc9.css.map": "/public/static/css/main.23ff9cc9.css.map",
+    "main.4ebc7608.js.map": "/public/static/js/main.4ebc7608.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.23ff9cc9.css",
+    "static/js/main.4ebc7608.js"
+  ]
+}
