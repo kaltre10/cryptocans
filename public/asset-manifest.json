@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/public/static/css/main.23ff9cc9.css",
-    "main.js": "/public/static/js/main.31a805a6.js",
+    "main.js": "/public/static/js/main.aba21405.js",
     "static/media/header-canodrome.png": "/public/static/media/header-canodrome.ee8c4eb5b63edf06ae4d.png",
     "static/media/humo.png": "/public/static/media/humo.7d99f115b0f2d18e0e25.png",
     "static/media/bg7.png": "/public/static/media/bg7.d3c9f653e6b37c0e985f.png",
@@ -27,10 +27,10 @@
     "static/media/nft-ico.svg": "/public/static/media/nft-ico.96c282a805e9f6b6fb1367028771667c.svg",
     "static/media/bnb-ico.svg": "/public/static/media/bnb-ico.bf2c61be49e0562910db6fd32748b047.svg",
     "main.23ff9cc9.css.map": "/public/static/css/main.23ff9cc9.css.map",
-    "main.31a805a6.js.map": "/public/static/js/main.31a805a6.js.map"
+    "main.aba21405.js.map": "/public/static/js/main.aba21405.js.map"
   },
   "entrypoints": [
     "static/css/main.23ff9cc9.css",
-    "static/js/main.31a805a6.js"
+    "static/js/main.aba21405.js"
   ]
 }
