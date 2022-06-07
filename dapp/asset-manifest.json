@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/dapp/static/css/main.585bdc99.chunk.css",
-    "main.js": "/dapp/static/js/main.3e5fabf8.chunk.js",
-    "main.js.map": "/dapp/static/js/main.3e5fabf8.chunk.js.map",
+    "main.css": "/dapp/static/css/main.1979997d.chunk.css",
+    "main.js": "/dapp/static/js/main.681d8822.chunk.js",
+    "main.js.map": "/dapp/static/js/main.681d8822.chunk.js.map",
     "runtime-main.js": "/dapp/static/js/runtime-main.1a816cb7.js",
     "runtime-main.js.map": "/dapp/static/js/runtime-main.1a816cb7.js.map",
     "static/css/2.d948c4b1.chunk.css": "/dapp/static/css/2.d948c4b1.chunk.css",
@@ -10,11 +10,11 @@
     "static/js/2.e9107e69.chunk.js.map": "/dapp/static/js/2.e9107e69.chunk.js.map",
     "index.html": "/dapp/index.html",
     "static/css/2.d948c4b1.chunk.css.map": "/dapp/static/css/2.d948c4b1.chunk.css.map",
-    "static/css/main.585bdc99.chunk.css.map": "/dapp/static/css/main.585bdc99.chunk.css.map",
+    "static/css/main.1979997d.chunk.css.map": "/dapp/static/css/main.1979997d.chunk.css.map",
     "static/js/2.e9107e69.chunk.js.LICENSE.txt": "/dapp/static/js/2.e9107e69.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/dapp/static/media/audiowide.2017bdb1.ttf",
     "static/media/beats.5a183b19.png": "/dapp/static/media/beats.5a183b19.png",
-    "static/media/raceUi.scss": "/dapp/static/media/pista.cbd0be3f.png",
+    "static/media/raceUi.scss": "/dapp/static/media/pista.25c0ec07.png",
     "static/media/bootstrap-icons.css": "/dapp/static/media/bootstrap-icons.c1d7432e.woff",
     "static/media/common.b9537f5c.webp": "/dapp/static/media/common.b9537f5c.webp",
     "static/media/common.f13a35c7.webp": "/dapp/static/media/common.f13a35c7.webp",
@@ -40,7 +40,7 @@
     "static/js/runtime-main.1a816cb7.js",
     "static/css/2.d948c4b1.chunk.css",
     "static/js/2.e9107e69.chunk.js",
-    "static/css/main.585bdc99.chunk.css",
-    "static/js/main.3e5fabf8.chunk.js"
+    "static/css/main.1979997d.chunk.css",
+    "static/js/main.681d8822.chunk.js"
   ]
 }
