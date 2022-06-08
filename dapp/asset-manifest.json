@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/dapp/static/css/main.1979997d.chunk.css",
-    "main.js": "/dapp/static/js/main.681d8822.chunk.js",
-    "main.js.map": "/dapp/static/js/main.681d8822.chunk.js.map",
+    "main.css": "/dapp/static/css/main.f0386d1d.chunk.css",
+    "main.js": "/dapp/static/js/main.9d77b875.chunk.js",
+    "main.js.map": "/dapp/static/js/main.9d77b875.chunk.js.map",
     "runtime-main.js": "/dapp/static/js/runtime-main.1a816cb7.js",
     "runtime-main.js.map": "/dapp/static/js/runtime-main.1a816cb7.js.map",
     "static/css/2.d948c4b1.chunk.css": "/dapp/static/css/2.d948c4b1.chunk.css",
@@ -10,20 +10,20 @@
     "static/js/2.e9107e69.chunk.js.map": "/dapp/static/js/2.e9107e69.chunk.js.map",
     "index.html": "/dapp/index.html",
     "static/css/2.d948c4b1.chunk.css.map": "/dapp/static/css/2.d948c4b1.chunk.css.map",
-    "static/css/main.1979997d.chunk.css.map": "/dapp/static/css/main.1979997d.chunk.css.map",
+    "static/css/main.f0386d1d.chunk.css.map": "/dapp/static/css/main.f0386d1d.chunk.css.map",
     "static/js/2.e9107e69.chunk.js.LICENSE.txt": "/dapp/static/js/2.e9107e69.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/dapp/static/media/audiowide.2017bdb1.ttf",
     "static/media/beats.5a183b19.png": "/dapp/static/media/beats.5a183b19.png",
-    "static/media/raceUi.scss": "/dapp/static/media/pista.25c0ec07.png",
+    "static/media/raceUi.scss": "/dapp/static/media/pista-min.43563026.webp",
     "static/media/bootstrap-icons.css": "/dapp/static/media/bootstrap-icons.c1d7432e.woff",
     "static/media/common.b9537f5c.webp": "/dapp/static/media/common.b9537f5c.webp",
     "static/media/common.f13a35c7.webp": "/dapp/static/media/common.f13a35c7.webp",
     "static/media/credit.06fa268f.webp": "/dapp/static/media/credit.06fa268f.webp",
     "static/media/discord.9ef99cbb.svg": "/dapp/static/media/discord.9ef99cbb.svg",
-    "static/media/dogCommon.26d0ab36.gif": "/dapp/static/media/dogCommon.26d0ab36.gif",
-    "static/media/dogEpic.eed248ad.gif": "/dapp/static/media/dogEpic.eed248ad.gif",
-    "static/media/dogLegendary.fa750d53.gif": "/dapp/static/media/dogLegendary.fa750d53.gif",
-    "static/media/dogRare.5fd23c13.gif": "/dapp/static/media/dogRare.5fd23c13.gif",
+    "static/media/dogCommon-min.2e429924.gif": "/dapp/static/media/dogCommon-min.2e429924.gif",
+    "static/media/dogEpic-min.6f523f53.gif": "/dapp/static/media/dogEpic-min.6f523f53.gif",
+    "static/media/dogLegendary-min.3f7b2669.gif": "/dapp/static/media/dogLegendary-min.3f7b2669.gif",
+    "static/media/dogRare-min.9f70f6ef.gif": "/dapp/static/media/dogRare-min.9f70f6ef.gif",
     "static/media/epic.259af26d.webp": "/dapp/static/media/epic.259af26d.webp",
     "static/media/epic.f5137fe2.webp": "/dapp/static/media/epic.f5137fe2.webp",
     "static/media/flag.061e64b5.png": "/dapp/static/media/flag.061e64b5.png",
@@ -40,7 +40,7 @@
     "static/js/runtime-main.1a816cb7.js",
     "static/css/2.d948c4b1.chunk.css",
     "static/js/2.e9107e69.chunk.js",
-    "static/css/main.1979997d.chunk.css",
-    "static/js/main.681d8822.chunk.js"
+    "static/css/main.f0386d1d.chunk.css",
+    "static/js/main.9d77b875.chunk.js"
   ]
 }
