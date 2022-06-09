@@ -23,7 +23,7 @@
     "mongoose-paginate-v2": "^1.6.3",
     "morgan": "^1.10.0",
     "socket.io": "^4.4.1",
-    "web3": "^1.7.1"
+    "web3": "^1.7.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
